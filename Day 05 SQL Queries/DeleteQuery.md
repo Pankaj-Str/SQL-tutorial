@@ -11,6 +11,54 @@
 | 7      | [Sorting Results](SortingResults.md)    |
 ---------
 
+Create a table named "p4n_emp" with the specified columns, you can use SQL. Here's an example SQL statement to create the table:
+
+```sql
+CREATE TABLE p4n_emp (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    DateOfBirth DATE,
+    Gender VARCHAR(10),
+    Email VARCHAR(255),
+    Phone VARCHAR(15),
+    Address VARCHAR(255),
+    DepartmentID INT,
+    Position VARCHAR(255),
+    Salary DECIMAL(10, 2)
+);
+```
+
+To insert five records into the "p4n_emp" table, you can use the INSERT INTO statement multiple times with different values for each record. Here's an example of inserting five records:
+
+```sql
+-- Inserting the first record
+INSERT INTO p4n_emp (EmployeeID, FirstName, LastName, DateOfBirth, Gender, Email, Phone, Address, DepartmentID, Position, Salary)
+VALUES
+(1, 'John', 'Doe', '1990-05-15', 'Male', 'johndoe@example.com', '555-555-5555', '123 Main St, City, State', 101, 'Manager', 75000.00);
+
+-- Inserting the second record
+INSERT INTO p4n_emp (EmployeeID, FirstName, LastName, DateOfBirth, Gender, Email, Phone, Address, DepartmentID, Position, Salary)
+VALUES
+(2, 'Jane', 'Smith', '1985-08-20', 'Female', 'janesmith@example.com', '555-555-5556', '456 Oak St, City, State', 102, 'Sales Representative', 60000.00);
+
+-- Inserting the third record
+INSERT INTO p4n_emp (EmployeeID, FirstName, LastName, DateOfBirth, Gender, Email, Phone, Address, DepartmentID, Position, Salary)
+VALUES
+(3, 'Michael', 'Johnson', '1992-03-10', 'Male', 'michael@example.com', '555-555-5557', '789 Elm St, City, State', 103, 'Software Engineer', 80000.00);
+
+-- Inserting the fourth record
+INSERT INTO p4n_emp (EmployeeID, FirstName, LastName, DateOfBirth, Gender, Email, Phone, Address, DepartmentID, Position, Salary)
+VALUES
+(4, 'Emily', 'Wilson', '1988-11-25', 'Female', 'emily@example.com', '555-555-5558', '101 Pine St, City, State', 102, 'Sales Manager', 90000.00);
+
+-- Inserting the fifth record
+INSERT INTO p4n_emp (EmployeeID, FirstName, LastName, DateOfBirth, Gender, Email, Phone, Address, DepartmentID, Position, Salary)
+VALUES
+(5, 'David', 'Brown', '1995-07-05', 'Male', 'david@example.com', '555-555-5559', '222 Cedar St, City, State', 104, 'HR Specialist', 65000.00);
+```
+
+
 The `DELETE` statement is used to remove one or more records from a table. It allows you to specify the conditions that determine which rows should be deleted. Here's the basic syntax of a `DELETE` statement:
 
 ```sql
