@@ -100,3 +100,36 @@ In this SQL statement:
 
 Please note that you may need to adjust the data types, lengths, and constraints based on your specific requirements and the policies and regulations of your organization. Additionally, you may want to create additional indexes or foreign keys based on your application's needs.
 
+----
+## Example : Using all Datatype :
+
+Create a table named "p4n_Employee" with all available data types in MySQL would result in a very lengthy and impractical table definition. However, I can provide you with a sample table that includes one column for each commonly used data type in MySQL:
+
+```sql
+CREATE TABLE p4n_Employee (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    smallint_col SMALLINT,
+    tinyint_col TINYINT,
+    mediumint_col MEDIUMINT,
+    int_col INT,
+    bigint_col BIGINT,
+    decimal_col DECIMAL(10, 2),
+    float_col FLOAT(8, 2),
+    double_col DOUBLE(8, 2),
+    char_col CHAR(10),
+    varchar_col VARCHAR(255),
+    text_col TEXT,
+    enum_col ENUM('Option1', 'Option2', 'Option3'),
+    date_col DATE,
+    time_col TIME,
+    datetime_col DATETIME,
+    timestamp_col TIMESTAMP,
+    year_col YEAR,
+    binary_col BINARY(10),
+    varbinary_col VARBINARY(255),
+    blob_col BLOB,
+    boolean_col BOOLEAN,
+    json_col JSON,
+    geometry_col GEOMETRY
+);
+```
