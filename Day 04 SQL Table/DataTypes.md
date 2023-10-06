@@ -1,5 +1,18 @@
 # SQL data types
-
+| Sn.No. | Topic Name              |
+|--------|-------------------------|
+| 1      | [Data Types](DataTypes.md)          |
+| 2      | [Create Table](CreateTable.md)        |
+| 3      | [Constraints](Constraints.md)        |
+| 4      | [Show Tables](ShowTables.md)          |
+| 5      | [Rename Table](RenameTable.md)        |
+| 6      | [Truncate Table](TruncateTable.md)    |
+| 7      | [Clone Tables](CloneTables.md)        |
+| 8      | [Temporary Tables](TemporaryTables.md)|
+| 9      | [Alter Tables](AlterTables.md)        |
+| 10     | [Drop Table](DropTable.md)            |
+| 11     | [Delete Table](DeleteTable.md)        |
+-------
 
 1. **INT (Integer)**:
    - Represents whole numbers.
