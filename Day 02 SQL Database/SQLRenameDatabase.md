@@ -1,3 +1,14 @@
+
+| Sn.No. | Topic Name       |
+|--------|------------------|
+| 1      | [Create Database](SQLCreateDatabase.md)     |
+| 2      | [Show Databases](SQLShowDatabases.md)       |
+| 3      | [Drop Database](SQLDropDatabase.md)           |
+| 4      | [Rename Database](SQLRenameDatabase.md)     |
+| 5      | [Select Database](SQLSelectDatabase.md)     |
+| 6      | [Backup Database](SQLBackupDatabase.md)     |
+---------
+
 # SQL - Rename Database
 
 Renaming a database in SQL can be a bit tricky because SQL standard doesn't provide a direct "RENAME DATABASE" command. The exact procedure for renaming a database depends on the database management system (DBMS) you are using. Here, I'll provide general guidelines for renaming a database in a few common DBMSs:
