@@ -1,3 +1,14 @@
+
+| Sn.No. | Topic Name       |
+|--------|------------------|
+| 1      | [Create Database](SQLCreateDatabase.md)     |
+| 2      | [Show Databases](SQLShowDatabases.md)       |
+| 3      | [Drop Database](SQLDropDatabase.md)           |
+| 4      | [Rename Database](SQLRenameDatabase.md)     |
+| 5      | [Select Database](SQLSelectDatabase.md)     |
+| 6      | [Backup Database](SQLBackupDatabase.md)     |
+---------
+
 # SQL - Backup Database
 Creating regular backups of your database is crucial for data protection and disaster recovery. The method for backing up a database can vary depending on the database management system (DBMS) you are using. Here are general guidelines for creating backups in a few commonly used DBMSs:
 

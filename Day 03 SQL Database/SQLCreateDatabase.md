@@ -1,3 +1,14 @@
+
+| Sn.No. | Topic Name       |
+|--------|------------------|
+| 1      | [Create Database](SQLCreateDatabase.md)     |
+| 2      | [Show Databases](SQLShowDatabases.md)       |
+| 3      | [Drop Database](SQLDropDatabase.md)           |
+| 4      | [Rename Database](SQLRenameDatabase.md)     |
+| 5      | [Select Database](SQLSelectDatabase.md)     |
+| 6      | [Backup Database](SQLBackupDatabase.md)     |
+---------
+
 # SQL - Create Database
 
 To create a new database in SQL, you typically use a Data Definition Language (DDL) statement. The exact syntax for creating a database can vary slightly depending on the specific database management system (DBMS) you are using, as different DBMSs may have their own variations of SQL. However, I'll provide a general example using SQL syntax that is common to many relational database systems.

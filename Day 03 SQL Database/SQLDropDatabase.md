@@ -1,3 +1,14 @@
+
+| Sn.No. | Topic Name       |
+|--------|------------------|
+| 1      | [Create Database](SQLCreateDatabase.md)     |
+| 2      | [Show Databases](SQLShowDatabases.md)       |
+| 3      | [Drop Database](SQLDropDatabase.md)           |
+| 4      | [Rename Database](SQLRenameDatabase.md)     |
+| 5      | [Select Database](SQLSelectDatabase.md)     |
+| 6      | [Backup Database](SQLBackupDatabase.md)     |
+---------
+
 # SQL - Drop Database
 
 Dropping a database in SQL means permanently deleting the database and all of its associated data, tables, views, and other objects. This operation should be used with caution because it irreversibly removes all the data within the database. To drop a database, you typically use a Data Definition Language (DDL) statement. The exact syntax for dropping a database can vary depending on the specific database management system (DBMS) you are using. I'll provide a general example using SQL syntax that is common to many relational database systems:
