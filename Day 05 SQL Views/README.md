@@ -1,4 +1,3 @@
-# SQL Views
 # SQL View
 
 **1. Creating View from a Single Table:**
