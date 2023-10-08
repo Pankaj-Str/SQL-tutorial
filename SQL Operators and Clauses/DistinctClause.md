@@ -18,11 +18,11 @@ Now, let's populate the table with some sample data:
 ```sql
 INSERT INTO Students (StudentID, FirstName, LastName, Major)
 VALUES
-    (1, 'John', 'Doe', 'Computer Science'),
-    (2, 'Jane', 'Smith', 'Mathematics'),
-    (3, 'Bob', 'Johnson', 'Computer Science'),
-    (4, 'Alice', 'Williams', 'Physics'),
-    (5, 'Charlie', 'Brown', 'Mathematics');
+    (1, 'Pankaj', 'Sharma', 'Computer Science'),
+    (2, 'Nishant', 'Patel', 'Mathematics'),
+    (3, 'Kiran', 'Desai', 'Computer Science'),
+    (4, 'Tanvi', 'Mehta', 'Physics'),
+    (5, 'Kritek', 'Singh', 'Mathematics');
 ```
 
 Now, let's explore how the DISTINCT clause can be used to retrieve unique values from a column:
@@ -56,11 +56,11 @@ Now, let's explore how the DISTINCT clause can be used to retrieve unique values
    ```
    | FirstName | LastName |
    |-----------|----------|
-   | John      | Doe      |
-   | Jane      | Smith    |
-   | Bob       | Johnson  |
-   | Alice     | Williams |
-   | Charlie   | Brown    |
+   | Pankaj    | Sharma   |
+   | Nishant   | Patel    |
+   | Kiran     | Desai    |
+   | Tanvi     | Mehta    |
+   | Kritek    | Singh    |
    ```
 
    This query returns unique combinations of first names and last names from the "FirstName" and "LastName" columns.
