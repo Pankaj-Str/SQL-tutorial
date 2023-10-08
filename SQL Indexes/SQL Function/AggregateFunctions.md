@@ -1,7 +1,5 @@
 # Aggregate Functions
 
-Create a table and use it to demonstrate common aggregate functions with examples and provide the expected output. We'll use the specified names and email domain "@codeswithpankaj.com" for records.
-
 First, let's create a sample table called `employees`:
 
 ```sql
