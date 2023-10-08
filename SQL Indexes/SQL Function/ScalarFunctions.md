@@ -1,7 +1,5 @@
 # Scalar Functions
 
-Let's create a table and use it to demonstrate these common scalar functions with examples and provide the expected output. We'll set the email domain to "@codeswithpankaj.com" and use the specified names for records.
-
 First, let's create a sample table called `employees`:
 
 ```sql
