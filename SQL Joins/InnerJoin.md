@@ -1,4 +1,4 @@
-# NNER JOIN
+# INNER JOIN
 
 In SQL, the INNER JOIN is used to combine rows from two or more tables based on a related column between them. The INNER JOIN returns only the rows that have matching values in both tables, making it a powerful tool for retrieving data from multiple related tables. Let's explore SQL INNER JOIN with examples:
 
