@@ -1,85 +1,91 @@
 # LIKE Operator
 
-In SQL, BOOLEAN (BIT) operators are used to perform logical operations on boolean values, which are typically represented as 1 (true) or 0 (false) in SQL databases. These operators allow you to combine, negate, or compare boolean expressions. Let's explore BOOLEAN (BIT) operators with examples:
+In SQL, the LIKE operator is used to search for a specified pattern within a text column. It is often used with wildcard characters to perform partial text matching. Let's explore the LIKE operator with examples:
 
-Suppose we have a hypothetical database with a table named "Tasks" that contains information about tasks assigned to employees. Each task has a status represented as a BOOLEAN (BIT) value (1 for completed, 0 for not completed). Here's the table structure:
+Suppose we have a hypothetical database with a table named "Customers" that contains information about customers, including their names and updated email addresses with "@codeswithpankaj.com" or "@p4n.in." Here's the table structure:
 
 ```sql
-CREATE TABLE Tasks (
-    TaskID INT PRIMARY KEY,
-    TaskName VARCHAR(100),
-    AssignedTo VARCHAR(50),
-    Status BIT
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
 );
 ```
 
 Now, let's populate the table with some sample data:
 
 ```sql
-INSERT INTO Tasks (TaskID, TaskName, AssignedTo, Status)
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
 VALUES
-    (1, 'Task 1', 'Pankaj', 1),
-    (2, 'Task 2', 'Nishant', 0),
-    (3, 'Task 3', 'Kiran', 1),
-    (4, 'Task 4', 'Tanvi', 0),
-    (5, 'Task 5', 'Kritek', 1);
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com'),
+    (6, 'Amit', 'Kumar', 'amit@p4n.in'),
+    (7, 'Neha', 'Verma', 'neha@p4n.in');
 ```
 
-Now, let's explore how BOOLEAN (BIT) operators can be used to perform logical operations:
+Now, let's explore how the LIKE operator can be used to search for customers:
 
-1. Using the NOT operator:
-   Retrieve tasks that are not completed (Status = 0):
+1. Using the % wildcard:
+   Retrieve customers whose email addresses contain either "@codeswithpankaj.com" or "@p4n.in" anywhere in the address:
 
    ```sql
-   SELECT * FROM Tasks
-   WHERE NOT Status = 1;
+   SELECT * FROM Customers
+   WHERE Email LIKE '%@codeswithpankaj.com%' OR Email LIKE '%@p4n.in%';
    ```
 
    Result:
    ```
-   | TaskID | TaskName | AssignedTo | Status |
-   |--------|----------|------------|--------|
-   | 2      | Task 2   | Nishant    | 0      |
-   | 4      | Task 4   | Tanvi      | 0      |
+   | CustomerID | FirstName | LastName | Email                     |
+   |------------|-----------|----------|---------------------------|
+   | 1          | Pankaj    | Sharma   | pankaj@codeswithpankaj.com|
+   | 2          | Nishant   | Patel    | nishant@codeswithpankaj.com|
+   | 3          | Kiran     | Desai    | kiran@codeswithpankaj.com  |
+   | 4          | Tanvi     | Mehta    | tanvi@codeswithpankaj.com  |
+   | 5          | Kritek    | Singh    | kritek@codeswithpankaj.com |
+   | 6          | Amit      | Kumar    | amit@p4n.in                |
+   | 7          | Neha      | Verma    | neha@p4n.in                |
    ```
 
-   The NOT operator is used to negate the condition, so it selects tasks where the Status is not equal to 1 (not completed).
+   The `%` wildcard matches any sequence of characters, so this query selects customers whose email addresses contain either "@codeswithpankaj.com" or "@p4n.in" anywhere in the address.
 
-2. Using the AND operator:
-   Retrieve tasks that are assigned to 'Pankaj' and are completed:
+2. Using the _ wildcard:
+   Retrieve customers whose last names start with "S" and are four letters long:
 
    ```sql
-   SELECT * FROM Tasks
-   WHERE AssignedTo = 'Pankaj' AND Status = 1;
+   SELECT * FROM Customers
+   WHERE LastName LIKE 'S___';
    ```
 
    Result:
    ```
-   | TaskID | TaskName | AssignedTo | Status |
-   |--------|----------|------------|--------|
-   | 1      | Task 1   | Pankaj     | 1      |
+   | CustomerID | FirstName | LastName | Email                     |
+   |------------|-----------|----------|---------------------------|
+   | 1          | Pankaj    | Sharma   | pankaj@codeswithpankaj.com|
+   | 5          | Kritek    | Singh    | kritek@codeswithpankaj.com |
    ```
 
-   The AND operator is used to combine two conditions: tasks must be assigned to 'Pankaj' (AssignedTo = 'Pankaj') and have a Status of 1 (completed).
+   The `_` wildcard matches a single character, so this query selects customers whose last names start with "S" and are four letters long.
 
-3. Using the OR operator:
-   Retrieve tasks that are either assigned to 'Kiran' or are not completed:
+3. Using a combination of wildcards:
+   Retrieve customers whose first names start with "K" and end with "n":
 
    ```sql
-   SELECT * FROM Tasks
-   WHERE AssignedTo = 'Kiran' OR NOT Status = 1;
+   SELECT * FROM Customers
+   WHERE FirstName LIKE 'K%n';
    ```
 
    Result:
    ```
-   | TaskID | TaskName | AssignedTo | Status |
-   |--------|----------|------------|--------|
-   | 2      | Task 2   | Nishant    | 0      |
-   | 3      | Task 3   | Kiran      | 1      |
-   | 4      | Task 4   | Tanvi      | 0      |
-   | 5      | Task 5   | Kritek     | 1      |
+   | CustomerID | FirstName | LastName | Email                     |
+   |------------|-----------|----------|---------------------------|
+   | 3          | Kiran     | Desai    | kiran@codeswithpankaj.com  |
+   | 5          | Kritek    | Singh    | kritek@codeswithpankaj.com |
    ```
 
-   The OR operator is used to combine two conditions: tasks must be either assigned to 'Kiran' (AssignedTo = 'Kiran') or not completed (Status = 0).
+   This query uses both `%` and `_` wildcards to specify that the first name should start with "K" and end with "n."
 
-BOOLEAN (BIT) operators allow you to perform logical operations on boolean values in SQL, enabling you to filter and select data based on complex boolean expressions.
+The LIKE operator is a powerful tool in SQL for performing pattern matching operations on text data, making it useful for searching and filtering records based on text patterns.
