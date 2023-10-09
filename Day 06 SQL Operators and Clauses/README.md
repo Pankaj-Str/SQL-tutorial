@@ -1,25 +1,28 @@
 # SQL Operators and Clauses
 
-| Sn. No. | Topic Name                       |
-|---------|----------------------------------|
-| 1       | [AND_OR.md](AND_OR.md)          |
-| 2       | [ANYALLOperators.md](ANYALLOperators.md) |
-| 3       | [Aliases.md](Aliases.md)        |
-| 4       | [BOOLEAN_BIT_Operator.md](BOOLEAN_BIT_Operator.md) |
-| 5       | [CASE.md](CASE.md)              |
-| 6       | [DistinctClause.md](DistinctClause.md) |
-| 7       | [EXISTSOperator](EXISTSOperator.md)  |
-| 8       | [GroupByClause.md](GroupByClause.md) |
-| 9       | [HavingClause.md](HavingClause.md)   |
-| 10      | [INOperator.md](INOperator.md)       |
-| 11      | [INTERSECT_EXCEPT_Operator.md](INTERSECT_EXCEPT_Operator.md) |
-| 12      | [LIKEOperator.md](LIKEOperator.md)   |
-| 13      | [NOTEQUAL.md](NOTEQUAL.md)           |
-| 14      | [NOTOperator.md](NOTOperator.md)     |
-| 15      | [README.md](README.md)              |
-| 16      | [TopClause.md](TopClause.md)        |
-| 17      | [UNION_UNIONALL.md](UNION_UNIONALL.md) |
-| 18      | [WhereClause.md](WhereClause.md)    |
-| 19      | [null_not_null.md](null_not_null.md) |
+| Sn. No. | Topic Name                           |
+|---------|--------------------------------------|
+| 1       | [SQL - Where Clause](WhereClause.md)                  |
+| 2       | [SQL - Top Clause](TopClause.md)                      |
+| 3       | [SQL - Distinct Clause](DistinctClause.md)             |
+| 4       | [SQL - Order By Clause](OrderByClause.md)             |
+| 5       | [SQL - Group By Clause](GroupByClause.md)             |
+| 6       | [SQL - Having Clause](HavingClause.md)               |
+| 7       | [SQL - AND & OR](AND_OR.md)                     |
+| 8       | [SQL - BOOLEAN (BIT) Operator](BOOLEAN_BIT_Operator.md) |
+| 9       | [SQL - LIKE Operator](LIKEOperator.md)               |
+| 10      | [SQL - IN Operator](INOperator.md)                   |
+| 11      | [SQL - ANY, ALL Operators](ANYALLOperators.md)        |
+| 12      | [SQL - EXISTS Operator](EXISTSOperator.md)            |
+| 13      | [SQL - CASE](CASE.md)                             |
+| 14      | [SQL - NOT Operator](NOTOperator.md)                |
+| 15      | [SQL - NOT EQUAL](NOTEQUAL.md)                    |
+| 16      | [SQL - IS NULL](null_not_null.md)                 |
+| 17      | [SQL - IS NOT NULL and NOT NULL](null_not_null.md)  |
+| 18      | [SQL - BETWEEN Operator](BETWEENOperator.md)          |
+| 19      | [SQL - UNION And UNION ALL](UNION_UNIONALL.md)        |
+| 20      | [SQL - INTERSECT Operator](INTERSECT_EXCEPT_Operator.md) |
+| 21      | [SQL - EXCEPT Operator](INTERSECT_EXCEPT_Operator.md)   |
+| 22      | [SQL - Aliases](Aliases.md)                      |
 --------
 
