@@ -106,31 +106,6 @@
 | SQL - Clustered Index                 |
 | SQL - Non-Clustered Index             |
 
-## Advanced SQL
-| **Topic Name**                        |
-|--------------------------------------|
-| SQL - Wildcards                       |
-| SQL - Comments                        |
-| SQL - Injection                       |
-| SQL - Hosting                         |
-| SQL - Min & Max                       |
-| SQL - Null Functions                  |
-| SQL - Check Constraint                |
-| SQL - Default Constraint              |
-| SQL - Stored Procedures               |
-| SQL - NULL Values                     |
-| SQL - Transactions                    |
-| SQL - Sub Queries                     |
-| SQL - Handling Duplicates             |
-| SQL - Using Sequences                 |
-| SQL - Auto Increment                  |
-| SQL - Date & Time                    |
-| SQL - Cursors                         |
-| SQL - Common Table Expression         |
-| SQL - Group By vs Order By            |
-| SQL - IN vs EXISTS                   |
-| SQL - Database Tuning                |
-
 ## SQL Function Reference   
 | **Topic Name**                        |
 |------------------|
