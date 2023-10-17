@@ -68,6 +68,47 @@ where amount = 0.0 or rental_id <= 100;
 select * from payment
 where amount between 0.00 and 2.00;
 
+-- date = 17 oct 2023
+
+-- SQL - LIKE Operator
+use sakila;
+select * from actor;
+
+select * from actor 
+where first_name like "a%";
+
+select * from actor 
+where first_name like "%a";
+
+select * from actor 
+where first_name like "%a%";
+
+-- SQL - IN Operator
+select * from payment;
+
+select * from payment 
+where amount in(2.99,0.99,5.99);
+
+-- SQL - NOT Operator
+use sakila;
+select * from payment;
+
+select * from payment 
+where not amount = 0.00;
+
+-- SQL - NOT EQUAL
+select * from payment 
+where amount != 2.99;
+
+-- SQL - IS NULL
+select * from address;
+select * from address 
+where address2 is null;
+
+-- SQL - IS NOT NULL
+select * from address 
+where address2 is not null;
+
 
 
 
