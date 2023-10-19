@@ -110,6 +110,96 @@ select * from address
 where address2 is not null;
 
 
+-- Date = 19 Oct 2023
+use p4n_db;
+-- drop table customers;
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Suppliers (
+    SupplierID INT PRIMARY KEY,
+    CompanyName VARCHAR(100),
+    Email VARCHAR(100)
+);
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com');
+
+INSERT INTO Suppliers (SupplierID, CompanyName, Email)
+VALUES
+    (101, 'ABC Inc.', 'abc@codeswithpankaj.com'),
+    (102, 'XYZ Ltd.', 'xyz@codeswithpankaj.com'),
+    (103, 'Company A', 'companya@p4n.in');
+
+select * from customers;
+select * from suppliers;
+
+-- union 
+SELECT Email FROM Customers
+UNION
+SELECT Email FROM Suppliers;
+
+-- SQL Keys
+-- SQL - Unique Key
+CREATE TABLE Students (
+    StudentID INT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100) UNIQUE
+);
+-- SQL - Primary Key:
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50)
+);
+-- SQL - Foreign Key
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50)
+);
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+	FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+-- SQL - Composite Key
+CREATE TABLE Sales (
+    ProductID INT,
+    StoreID INT,
+    SaleDate DATE,
+    PRIMARY KEY (ProductID, StoreID)
+);
+-- SQL - Alternate Key
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    SSN VARCHAR(20) UNIQUE,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50)
+);
+
+-- create  view 
+use sakila;
+select * from payment;
+create view amount_grp as
+select amount ,count(amount) as total_customer 
+from payment
+group by amount;
+
+-- calling view 
+select * from amount_grp;
+
 
 
 
