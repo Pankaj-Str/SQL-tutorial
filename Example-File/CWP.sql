@@ -201,5 +201,79 @@ group by amount;
 select * from amount_grp;
 
 
+-- Date - 26 Oct 2023 
 
+-- FULL OUTER JOIN
+use p4n_db2;
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2)
+);
+
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (101, 1, '2023-01-15', 250.00),
+    (102, 2, '2023-02-20', 120.50),
+    (103, 3, '2023-03-10', 320.75),
+    (105, 4, '2023-05-12', 210.00);
+
+
+-- check table 
+select * from Customers;
+select * from Orders;
+
+-- SELECT c.FirstName, c.LastName, o.OrderDate
+-- FROM Customers AS c
+-- LEFT JOIN Orders AS o ON c.CustomerID = o.CustomerID;
+
+-- left join 
+select customers.firstname, customers.email , 
+orders.totalamount, orders.orderdate
+from customers
+left join orders 
+on orders.customerid = customers.customerid; 
+
+-- right join 
+select customers.firstname, customers.email , 
+orders.totalamount, orders.orderdate
+from customers
+right join orders 
+on orders.customerid = customers.customerid; 
+
+
+-- LEFT JOIN to get all customers and their orders
+SELECT c.FirstName, c.LastName, o.OrderDate,o.totalamount
+FROM Customers AS c
+LEFT JOIN Orders AS o ON c.CustomerID = o.CustomerID
+
+UNION ALL
+
+-- RIGHT JOIN to get all orders and their associated customers
+SELECT c.FirstName, c.LastName, o.OrderDate,o.totalamount
+FROM Customers AS c
+RIGHT JOIN Orders AS o ON c.CustomerID = o.CustomerID
+WHERE c.CustomerID IS NULL;
+
+--  INNER JOIN
+SELECT c.FirstName, c.LastName, o.OrderDate
+FROM Customers AS c
+INNER JOIN Orders AS o ON c.CustomerID = o.CustomerID;
 
