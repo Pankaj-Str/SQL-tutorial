@@ -272,6 +272,91 @@ FROM Customers AS c
 RIGHT JOIN Orders AS o ON c.CustomerID = o.CustomerID
 WHERE c.CustomerID IS NULL;
 
+
+-- Date : 31 oct 2023 
+
+use p4n_db2;
+
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100),
+    hire_date DATE
+);
+
+INSERT INTO employees (employee_id, first_name, last_name, email, hire_date)
+VALUES
+    (1, 'Rohit', 'Gupta', 'rohit@codeswithpankaj.com', '2022-01-15'),
+    (2, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com', '2021-03-20'),
+    (3, 'Nishant', 'Verma', 'nishant@codeswithpankaj.com', '2023-02-10'),
+    (4, 'Neelam', 'Singh', 'neelam@codeswithpankaj.com', '2022-11-05'),
+    (5, 'Tanvi', 'Patel', 'tanvi@codeswithpankaj.com', '2021-09-30'),
+    (6, 'Kiran', 'Yadav', 'kiran@codeswithpankaj.com', '2022-08-14'),
+    (7, 'Ruby', 'Jain', 'ruby@codeswithpankaj.com', '2023-04-25'),
+    (8, 'Priti', 'Mehta', 'priti@codeswithpankaj.com', '2022-06-08'),
+    (9, 'Aditi', 'Raj', 'aditi@codeswithpankaj.com', '2021-12-01'),
+    (10, 'Kritek', 'Agarwal', 'kritek@codeswithpankaj.com', '2023-03-15');
+    
+-- select table 
+select * from employees;
+
+-- GETDATE()/CURRENT_TIMESTAMP()
+INSERT INTO employees (employee_id, first_name, last_name, email, hire_date)
+VALUES
+    (11, 'Joy', 'Jain', 'jain@codeswithpankaj.com', CURRENT_TIMESTAMP());
+    
+    
+
+-- DATEADD()
+SELECT DATE_ADD("2017-06-15", INTERVAL 10 DAY);
+
+-- SELECT DATEADD(MONTH, 3, hire_date) AS three_months_later
+
+
+-- DATEDIFF()
+SELECT DATEDIFF("2023-10-31","1990-8-23");
+
+-- YEAR(), MONTH(), DAY()
+SELECT YEAR("2017-06-15");
+SELECT MONTH("2017-06-15");
+SELECT DAY("2017-06-15");
+
+select year(hire_date) from employees;
+
+select day(hire_date) from employees;
+
+INSERT INTO employees (employee_id, first_name, last_name, email, hire_date)
+VALUES
+    (12, 'toy', 'tain', 'tain@codeswithpankaj.com', 30-10-2023);
+    
+select * from employees;
+
+SELECT *,CONCAT(first_name, ' ', last_name) AS full_name
+FROM employees;
+
+SELECT employee_id,email,hire_date,CONCAT(first_name, ' ', last_name) AS full_name
+FROM employees;
+
+SELECT UPPER(email) AS uppercase_email
+FROM employees;
+
+SELECT LOWER(email) AS lowercase_email
+FROM employees;
+
+
+SELECT LENGTH(email) AS email_length
+FROM employees;
+
+SELECT SUBSTRING(email, 1, 6) AS extracted_text
+FROM employees;
+
+use sakila;
+
+select * from payment;
+
+select sum(amount) as total_amount from payment;
+
 --  INNER JOIN
 SELECT c.FirstName, c.LastName, o.OrderDate
 FROM Customers AS c
