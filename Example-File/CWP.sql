@@ -362,3 +362,46 @@ SELECT c.FirstName, c.LastName, o.OrderDate
 FROM Customers AS c
 INNER JOIN Orders AS o ON c.CustomerID = o.CustomerID;
 
+----------- ******
+
+-- Subquery
+
+use sakila;
+
+-- SELECT *
+-- FROM Customers
+-- WHERE age = (
+--   SELECT min(age)
+--   FROM Customers
+-- );
+
+select * from payment;
+
+-- subquery
+select * from payment
+where amount = (
+	select min(amount) from payment
+);
+
+select payment_id,rental_id,amount from payment
+where amount = (
+	select min(amount) from payment
+);
+
+select payment_id,rental_id,amount from payment
+where amount = (
+	select max(amount) from payment
+);
+
+select * from payment 
+where amount = 0.0;
+
+select amount ,count(amount) as total_amount 
+from payment
+group by amount
+having count(amount) > 2000;
+
+-- Sum()
+select sum(amount)
+from payment; 
+
