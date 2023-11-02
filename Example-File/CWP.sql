@@ -405,3 +405,25 @@ having count(amount) > 2000;
 select sum(amount)
 from payment; 
 
+
+-- date 02 Nav 2023  
+-- CASE
+
+use sakila;
+
+select * from payment;
+
+-- SELECT customer_id, first_name,
+-- CASE
+-- WHEN age >= 18 THEN 'Allowed'
+-- END AS can_vote
+-- FROM Customers;
+
+select rental_id,amount,payment_id,
+case
+when amount = 0.99 then 'Due Payment'
+when amount = 2.99 then 'Payment Reject'
+ELSE 'Done(y) Payment'
+end as Amount_Due
+from payment;
+
