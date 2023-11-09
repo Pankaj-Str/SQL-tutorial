@@ -1,5 +1,13 @@
 # RIGHT JOIN (or RIGHT OUTER JOIN): 
-
+## Table of Contents
+| Sn. No | Join Type                |
+|--------|--------------------------|
+| 1      | [Full Join](FullJoin.md) |
+| 2      | [Inner Join](InnerJoin.md)|
+| 3      | [Left Join](LeftJoin.md)  |
+| 4      | [Right Join](RightJoin.md)|
+| 5      | [Self Join](SelfJoin.md)  |
+***
 In SQL, the RIGHT JOIN (or RIGHT OUTER JOIN) is used to retrieve rows from the right table along with matching rows from the left table. If there are no matches in the left table, the result will still contain rows from the right table with NULL values in the columns from the left table. RIGHT JOIN is valuable for fetching data from the secondary table while including related data from the primary table, even if some rows have no matches in the primary table. Let's explore SQL RIGHT JOIN with examples:
 
 Suppose we have a hypothetical database with two tables, "Orders" and "Customers," containing information about customer orders and customer details. Here's the table structure:

@@ -1,5 +1,18 @@
 # SQL Function
 
+# Functions Documentation
+
+## Table of Contents
+| Sn. No | Topic Name                 |
+|--------|----------------------------|
+| 1      | [Aggregate Functions](AggregateFunctions.md)     |
+| 2      | [Date and Time Functions](Date_TimeFunctions.md)  |
+| 3      | [Scalar Functions](ScalarFunctions.md)            |
+| 4      | [String Functions](StringFunctions.md)            |
+| 5      | [User-Defined Functions](User-DefinedFunctions.md)|
+
+
+
 SQL functions are database-specific operations that allow you to perform calculations, manipulate data, and return specific values or results. There are several categories of SQL functions, including:
 
 1. **Scalar Functions**:

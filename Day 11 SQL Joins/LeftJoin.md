@@ -1,5 +1,13 @@
 # LEFT JOIN (or LEFT OUTER JOIN):
-
+## Table of Contents
+| Sn. No | Join Type                |
+|--------|--------------------------|
+| 1      | [Full Join](FullJoin.md) |
+| 2      | [Inner Join](InnerJoin.md)|
+| 3      | [Left Join](LeftJoin.md)  |
+| 4      | [Right Join](RightJoin.md)|
+| 5      | [Self Join](SelfJoin.md)  |
+***
 In SQL, the LEFT JOIN (or LEFT OUTER JOIN) is used to retrieve rows from the left table along with matching rows from the right table. If there are no matches in the right table, the result will still contain rows from the left table with NULL values in the columns from the right table. LEFT JOIN is valuable for fetching data from the primary table while including related data from the secondary table, even if some rows have no matches in the secondary table. Let's explore SQL LEFT JOIN with examples:
 
 Suppose we have a hypothetical database with two tables, "Orders" and "Customers," containing information about customer orders and customer details. Here's the table structure:

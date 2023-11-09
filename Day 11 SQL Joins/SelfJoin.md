@@ -1,5 +1,13 @@
 # SELF JOIN
-
+## Table of Contents
+| Sn. No | Join Type                |
+|--------|--------------------------|
+| 1      | [Full Join](FullJoin.md) |
+| 2      | [Inner Join](InnerJoin.md)|
+| 3      | [Left Join](LeftJoin.md)  |
+| 4      | [Right Join](RightJoin.md)|
+| 5      | [Self Join](SelfJoin.md)  |
+***
 A MySQL SELF JOIN is a type of join where a table is joined with itself. This can be useful when you have a table with hierarchical data or when you need to compare records within the same table. Here's how you can perform a MySQL SELF JOIN with a hypothetical "Employees" table:
 
 Suppose we have a hypothetical "Employees" table with the following structure:

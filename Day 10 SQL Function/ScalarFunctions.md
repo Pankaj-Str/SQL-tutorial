@@ -1,5 +1,16 @@
 # Scalar Functions
 
+# Functions Documentation
+
+## Table of Contents
+| Sn. No | Topic Name                 |
+|--------|----------------------------|
+| 1      | [Aggregate Functions](AggregateFunctions.md)     |
+| 2      | [Date and Time Functions](Date_TimeFunctions.md)  |
+| 3      | [Scalar Functions](ScalarFunctions.md)            |
+| 4      | [String Functions](StringFunctions.md)            |
+| 5      | [User-Defined Functions](User-DefinedFunctions.md)|
+
 First, let's create a sample table called `employees`:
 
 ```sql

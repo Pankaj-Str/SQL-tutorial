@@ -1,5 +1,13 @@
 # INNER JOIN
-
+## Table of Contents
+| Sn. No | Join Type                |
+|--------|--------------------------|
+| 1      | [Full Join](FullJoin.md) |
+| 2      | [Inner Join](InnerJoin.md)|
+| 3      | [Left Join](LeftJoin.md)  |
+| 4      | [Right Join](RightJoin.md)|
+| 5      | [Self Join](SelfJoin.md)  |
+***
 In SQL, the INNER JOIN is used to combine rows from two or more tables based on a related column between them. The INNER JOIN returns only the rows that have matching values in both tables, making it a powerful tool for retrieving data from multiple related tables. Let's explore SQL INNER JOIN with examples:
 
 Suppose we have a hypothetical database with two tables, "Orders" and "Customers," containing information about customer orders and customer details. Here's the table structure:

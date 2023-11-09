@@ -1,5 +1,16 @@
 # SQL Joins
 
+## Table of Contents
+| Sn. No | Join Type                |
+|--------|--------------------------|
+| 1      | [Full Join](FullJoin.md) |
+| 2      | [Inner Join](InnerJoin.md)|
+| 3      | [Left Join](LeftJoin.md)  |
+| 4      | [Right Join](RightJoin.md)|
+| 5      | [Self Join](SelfJoin.md)  |
+
+***
+
 SQL JOIN is a database operation used to combine rows from two or more tables based on a related column between them. It allows you to retrieve data from multiple tables in a single query by establishing relationships between the tables. There are several types of JOIN operations in SQL, and here are the most common ones along with their syntax:
 
 1. INNER JOIN:
