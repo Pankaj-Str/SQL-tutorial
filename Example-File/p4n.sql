@@ -257,7 +257,7 @@ ORDER BY customername desc;
 SELECT DISTINCT creditlimit
 from customers;
 
--- TOP
+-- TOP , LIMIT
 
 select * from customers;
 SELECT *
@@ -275,13 +275,79 @@ from payments
 GROUP BY customernumber;
 
 --  Like operator
+use p4n01;
+show tables;
+select * from customers;
 
+-- like %_ , _% , %_%
+-- _%
+select * from customers
+where customername 
+like "a%";
 
+-- %_
+select * from customers
+where customername 
+like "%e";
 
+-- %_%
+select * from customers
+where customername 
+like "%a%";
 
---  Using ORDER BY, DISTINCT and TOP
+select * from customers
+where customername 
+like "%a_";
+
+select * from customers
+where customername 
+like "__a%";
+
+select * from customers
+where contactlastname 
+like "_____l";
+
+select * from customers
+where customername 
+like "___tr__%";
+
 
 --  Using IS NULL and IS NOT NULL
+
+select * from customers
+where state is null and addressline2 is null;
+
+select * from customers
+where state is not null;
+
+-- Various other clauses (Views,union)
+
+CREATE view find_data as
+select * from customers
+where customername 
+like "___tr__%";
+
+select * from find_data;
+
+-- union
+
+show tables;
+
+select * from orders;
+select * from payments;
+ 
+select customernumber,ordernumber from orders
+union
+select customernumber,amount from payments;
+ 
+select customernumber,ordernumber from orders
+union all
+select customernumber,amount from payments;
+ 
+
+
+
+
     
 
 
