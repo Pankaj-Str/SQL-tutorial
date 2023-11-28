@@ -11,130 +11,49 @@
 | 4      | [String Functions](StringFunctions.md)            |
 | 5      | [User-Defined Functions](User-DefinedFunctions.md)|
 
-First, let's create a sample table called `employees`:
 
-```sql
-CREATE TABLE employees (
-    employee_id INT PRIMARY KEY,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    email VARCHAR(100)
-);
+Let's use the `employees` table you've created to demonstrate some string functions in MySQL:
 
-INSERT INTO employees (employee_id, first_name, last_name, email)
-VALUES
-    (1, 'Rohit', 'Gupta', 'rohit@codeswithpankaj.com'),
-    (2, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
-    (3, 'Nishant', 'Verma', 'nishant@codeswithpankaj.com'),
-    (4, 'Neelam', 'Singh', 'neelam@codeswithpankaj.com'),
-    (5, 'Tanvi', 'Patel', 'tanvi@codeswithpankaj.com'),
-    (6, 'Kiran', 'Yadav', 'kiran@codeswithpankaj.com'),
-    (7, 'Ruby', 'Jain', 'ruby@codeswithpankaj.com'),
-    (8, 'Priti', 'Mehta', 'priti@codeswithpankaj.com'),
-    (9, 'Aditi', 'Raj', 'aditi@codeswithpankaj.com'),
-    (10, 'Kritek', 'Agarwal', 'kritek@codeswithpankaj.com');
-```
+1. **CONCAT(str1, str2, ...):**
+   - Concatenates first and last names.
 
-Now, let's demonstrate the common string functions:
-
-1. **CHARINDEX()**:
-   - Finds the position of a substring within a string.
-
-   Example:
    ```sql
-   SELECT CHARINDEX('kaj', email) AS position_kaj
-   FROM employees;
+   SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM employees;
    ```
 
-   Output:
-   ```
-   | position_kaj |
-   |--------------|
-   | 10           |
-   | 5            |
-   | 6            |
-   | 7            |
-   | 5            |
-   | 5            |
-   | 5            |
-   | 5            |
-   | 5            |
-   | 6            |
-   ```
+2. **UPPER(str) and LOWER(str):**
+   - Converts email addresses to uppercase and lowercase.
 
-2. **LEFT()**:
-   - Returns a specified number of characters from the beginning of a string.
-
-   Example:
    ```sql
-   SELECT LEFT(first_name, 3) AS left_three_chars
-   FROM employees;
+   SELECT UPPER(email) AS uppercase_email, LOWER(email) AS lowercase_email FROM employees;
    ```
 
-   Output:
-   ```
-   | left_three_chars |
-   |------------------|
-   | Roh              |
-   | Pan              |
-   | Nis              |
-   | Nee              |
-   | Tan              |
-   | Kir              |
-   | Rub              |
-   | Pri              |
-   | Adi              |
-   | Kri              |
-   ```
+3. **SUBSTRING(str, start, length):**
+   - Extracts the first three characters of the email.
 
-3. **RIGHT()**:
-   - Returns a specified number of characters from the end of a string.
-
-   Example:
    ```sql
-   SELECT RIGHT(last_name, 4) AS right_four_chars
-   FROM employees;
+   SELECT SUBSTRING(email, 1, 3) AS email_prefix FROM employees;
    ```
 
-   Output:
-   ```
-   | right_four_chars |
-   |------------------|
-   | upta             |
-   | harma            |
-   | Verma            |
-   | Singh            |
-   | Patel            |
-   | Yadav            |
-   | Jain             |
-   | Mehta            |
-   | Raj              |
-   | Agar             |
-   ```
+4. **LENGTH(str) or CHAR_LENGTH(str):**
+   - Returns the length of the first names.
 
-4. **REPLACE()**:
-   - Replaces occurrences of a substring with another substring.
-
-   Example (using "@p4n.in" as the replacement domain):
    ```sql
-   SELECT REPLACE(email, '@codeswithpankaj.com', '@p4n.in') AS updated_email
-   FROM employees;
+   SELECT first_name, LENGTH(first_name) AS name_length FROM employees;
    ```
 
-   Output:
-   ```
-   | updated_email              |
-   |---------------------------|
-   | rohit@p4n.in               |
-   | pankaj@p4n.in              |
-   | nishant@p4n.in             |
-   | neelam@p4n.in              |
-   | tanvi@p4n.in               |
-   | kiran@p4n.in               |
-   | ruby@p4n.in                |
-   | priti@p4n.in               |
-   | aditi@p4n.in               |
-   | kritek@p4n.in              |
+5. **TRIM([{BOTH | LEADING | TRAILING} [remstr] FROM] str):**
+   - Removes leading and trailing spaces from email addresses.
+
+   ```sql
+   SELECT TRIM(BOTH ' ' FROM email) AS trimmed_email FROM employees;
    ```
 
-These string functions are valuable for manipulating and working with text data in SQL, allowing you to perform various operations on string values within your queries.
+6. **REPLACE(str, old_substring, new_substring):**
+   - Replaces 'codeswithpankaj.com' with 'example.com' in email addresses.
+
+   ```sql
+   SELECT REPLACE(email, 'codeswithpankaj.com', 'example.com') AS modified_email FROM employees;
+   ```
+
+These examples demonstrate how to use various string functions with the `employees` table. You can modify and combine these functions based on your specific requirements.
