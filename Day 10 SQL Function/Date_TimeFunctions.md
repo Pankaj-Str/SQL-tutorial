@@ -72,7 +72,7 @@ Now, let's use some date functions:
 
    ```sql
    SELECT NOW() AS current_datetime;
-   CURTIME() AS current_time;
+   SELECT CURTIME();
    ```
 
 These examples illustrate how to use various date functions in MySQL. You can adapt these functions based on your specific date-related requirements.
