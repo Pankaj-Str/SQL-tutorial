@@ -36,7 +36,7 @@ Now, let's use some date functions:
    - Returns the current date.
 
    ```sql
-   SELECT CURDATE() AS current_date;
+   SELECT CURDATE();
    ```
 
 2. **DATEDIFF(date1, date2):**
@@ -71,7 +71,8 @@ Now, let's use some date functions:
    - Returns the current date and time.
 
    ```sql
-   SELECT NOW() AS current_datetime, CURTIME() AS current_time;
+   SELECT NOW() AS current_datetime;
+   CURTIME() AS current_time;
    ```
 
 These examples illustrate how to use various date functions in MySQL. You can adapt these functions based on your specific date-related requirements.
