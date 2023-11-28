@@ -345,7 +345,84 @@ union all
 select customernumber,amount from payments;
  
 
+-- String Function Date 11/28/2023
+create DATABASE cwp;
+use cwp;
 
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100)
+);
+
+INSERT INTO employees(employee_id, first_name, last_name, email)
+VALUES
+    (1, 'Rohit', 'Gupta', 'rohit@codeswithpankaj.com'),
+    (2, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (3, 'Nishant', 'Verma', 'nishant@codeswithpankaj.com'),
+    (4, 'Neelam', 'Singh', 'neelam@codeswithpankaj.com'),
+    (5, 'Tanvi', 'Patel', 'tanvi@codeswithpankaj.com'),
+    (6, 'Kiran', 'Yadav', 'kiran@codeswithpankaj.com'),
+    (7, 'Ruby', 'Jain', 'ruby@codeswithpankaj.com'),
+    (8, 'Priti', 'Mehta', 'priti@codeswithpankaj.com'),
+    (9, 'Aditi', 'Raj', 'aditi@codeswithpankaj.com'),
+    (10, 'Kritek', 'Agarwal', 'kritek@codeswithpankaj.com');
+
+select * from employees;
+INSERT INTO employees(employee_id, first_name, last_name, email)
+VALUES(11, 'J  oy', ' Jain', 'rohit@codeswithpankaj.com ');
+
+-- CONCAT(str1, str2, ...):
+SELECT employee_id , email , CONCAT(first_name,' ', last_name) AS full_name FROM employees;
+-- UPPER(str) and LOWER(str):
+SELECT UPPER(email) AS uppercase_email, LOWER(email) AS lowercase_email FROM employees;
+-- SUBSTRING(str, start, length): (length start with 1)
+
+SELECT SUBSTRING(email, 1, 10) AS email_prefix FROM employees;
+
+-- LENGTH(str) or CHAR_LENGTH(str):
+
+SELECT first_name, LENGTH(first_name) AS name_length FROM employees;
+
+-- SELECT first_name, CHAR_LENGTH(first_name) AS name_length FROM employees;
+
+-- TRIM([{BOTH | LEADING | TRAILING} [remstr] FROM] str):
+select * from employees;
+SELECT TRIM(BOTH ' ' FROM last_name) AS trimmed_email FROM employees;
+SELECT TRIM(LEADING ' ' FROM last_name) AS trimmed_email FROM employees;
+SELECT TRIM(TRAILING ' ' FROM email) AS trimmed_email FROM employees;
+
+-- REPLACE(str, old_substring, new_substring)
+SELECT REPLACE(email, 'codeswithpankaj.com', 'p4n.in') AS modified_email FROM employees;
+SELECT REPLACE(first_name, 'Rohit', 'joy') AS modified_email FROM employees;
+
+-- Math Function
+-- ROUND(number, decimals)
+use p4n01;
+select * from customers;
+SELECT ROUND(creditlimit) AS rounded_id FROM customers;
+
+-- CEIL(number) and FLOOR(number)
+
+SELECT CEIL(creditlimit) AS ceil_id, FLOOR(creditlimit) AS floor_id FROM customers;
+
+-- ABS(number)
+SELECT ABS(creditlimit) AS absolute_id FROM customers;
+
+-- RAND()
+SELECT creditlimit, ROUND(RAND()*34567) AS customers_id FROM customers;
+
+-- SQRT(number)
+
+SELECT creditlimit, SQRT(creditlimit) AS sqrt_id FROM customers;
+-- POWER(number, exponent)
+
+SELECT customernumber, POWER(customernumber, 2) AS squared_id FROM customers;
+
+-- MOD(number, divisor)
+SELECT customernumber, MOD(customernumber, 2) AS remainder FROM customers
+where MOD(customernumber, 2) = 1;
 
 
     
