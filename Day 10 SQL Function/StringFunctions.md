@@ -11,7 +11,30 @@
 | 4      | [String Functions](StringFunctions.md)            |
 | 5      | [User-Defined Functions](User-DefinedFunctions.md)|
 
+```sql
+Create database codeswithpankaj;
+use codeswithpankaj;
 
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100)
+);
+
+INSERT INTO employees(employee_id, first_name, last_name, email)
+VALUES
+    (1, 'Rohit', 'Gupta', 'rohit@codeswithpankaj.com'),
+    (2, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (3, 'Nishant', 'Verma', 'nishant@codeswithpankaj.com'),
+    (4, 'Neelam', 'Singh', 'neelam@codeswithpankaj.com'),
+    (5, 'Tanvi', 'Patel', 'tanvi@codeswithpankaj.com'),
+    (6, 'Kiran', 'Yadav', 'kiran@codeswithpankaj.com'),
+    (7, 'Ruby', 'Jain', 'ruby@codeswithpankaj.com'),
+    (8, 'Priti', 'Mehta', 'priti@codeswithpankaj.com'),
+    (9, 'Aditi', 'Raj', 'aditi@codeswithpankaj.com'),
+    (10, 'Kritek', 'Agarwal', 'kritek@codeswithpankaj.com');
+```
 Let's use the `employees` table you've created to demonstrate some string functions in MySQL:
 
 1. **CONCAT(str1, str2, ...):**
