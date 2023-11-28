@@ -12,125 +12,66 @@
 | 5      | [User-Defined Functions](User-DefinedFunctions.md)|
 
 ***
-First, let's create a sample table called `employees`:
+Date functions using a table that includes date-related information. If you don't have a table with date values, we can create a new one for this example:
 
 ```sql
-CREATE TABLE employees (
-    employee_id INT PRIMARY KEY,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    email VARCHAR(100),
-    hire_date DATE
+CREATE TABLE events (
+    event_id INT PRIMARY KEY,
+    event_name VARCHAR(50),
+    event_date DATE
 );
 
-INSERT INTO employees (employee_id, first_name, last_name, email, hire_date)
+INSERT INTO events(event_id, event_name, event_date)
 VALUES
-    (1, 'Rohit', 'Gupta', 'rohit@codeswithpankaj.com', '2022-01-15'),
-    (2, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com', '2021-03-20'),
-    (3, 'Nishant', 'Verma', 'nishant@codeswithpankaj.com', '2023-02-10'),
-    (4, 'Neelam', 'Singh', 'neelam@codeswithpankaj.com', '2022-11-05'),
-    (5, 'Tanvi', 'Patel', 'tanvi@codeswithpankaj.com', '2021-09-30'),
-    (6, 'Kiran', 'Yadav', 'kiran@codeswithpankaj.com', '2022-08-14'),
-    (7, 'Ruby', 'Jain', 'ruby@codeswithpankaj.com', '2023-04-25'),
-    (8, 'Priti', 'Mehta', 'priti@codeswithpankaj.com', '2022-06-08'),
-    (9, 'Aditi', 'Raj', 'aditi@codeswithpankaj.com', '2021-12-01'),
-    (10, 'Kritek', 'Agarwal', 'kritek@codeswithpankaj.com', '2023-03-15');
+    (1, 'Meeting', '2023-01-15'),
+    (2, 'Conference', '2023-02-20'),
+    (3, 'Training', '2023-03-25'),
+    (4, 'Workshop', '2023-04-10'),
+    (5, 'Seminar', '2023-05-05');
 ```
 
-Now, let's demonstrate the common date and time functions:
+Now, let's use some date functions:
 
-1. **GETDATE()**:
+1. **CURDATE():**
+   - Returns the current date.
+
+   ```sql
+   SELECT CURDATE() AS current_date;
+   ```
+
+2. **DATEDIFF(date1, date2):**
+   - Calculates the difference in days between two dates.
+
+   ```sql
+   SELECT event_name, DATEDIFF(event_date, CURDATE()) AS days_until_event FROM events;
+   ```
+
+3. **DATE_ADD(date, INTERVAL value unit):**
+   - Adds a specific interval to a date.
+
+   ```sql
+   SELECT event_name, event_date, DATE_ADD(event_date, INTERVAL 7 DAY) AS new_date FROM events;
+   ```
+
+4. **DATE_SUB(date, INTERVAL value unit):**
+   - Subtracts a specific interval from a date.
+
+   ```sql
+   SELECT event_name, event_date, DATE_SUB(event_date, INTERVAL 3 MONTH) AS new_date FROM events;
+   ```
+
+5. **DATE_FORMAT(date, format):**
+   - Formats a date as a string according to a specified format.
+
+   ```sql
+   SELECT event_name, DATE_FORMAT(event_date, '%Y-%m-%d') AS formatted_date FROM events;
+   ```
+
+6. **NOW() and CURTIME():**
    - Returns the current date and time.
 
-   Example:
    ```sql
-   SELECT GETDATE() AS current_datetime;
+   SELECT NOW() AS current_datetime, CURTIME() AS current_time;
    ```
 
-   Output:
-   ```
-   | current_datetime           |
-   |----------------------------|
-   | 2023-10-08 12:34:56.789   |
-   ```
-
-2. **DATEADD()**:
-   - Adds a specified time interval to a date.
-
-   Example:
-   ```sql
-   SELECT DATEADD(MONTH, 3, hire_date) AS three_months_later
-   FROM employees;
-   ```
-
-   Output:
-   ```
-   | three_months_later |
-   |---------------------|
-   | 2022-04-15          |
-   | 2021-06-20          |
-   | 2023-05-10          |
-   | 2023-02-05          |
-   | 2021-12-30          |
-   | 2022-11-14          |
-   | 2023-07-25          |
-   | 2022-09-08          |
-   | 2022-03-01          |
-   | 2023-06-15          |
-   ```
-
-3. **DATEDIFF()**:
-   - Calculates the difference between two dates.
-
-   Example:
-   ```sql
-   SELECT DATEDIFF(DAY, hire_date, GETDATE()) AS days_since_hire
-   FROM employees;
-   ```
-
-   Output:
-   ```
-   | days_since_hire |
-   |-----------------|
-   | 267             |
-   | 566             |
-   | -241            |
-   | 338             |
-   | 744             |
-   | 420             |
-   | -178            |
-   | 488             |
-   | 676             |
-   | -176            |
-   ```
-
-4. **YEAR(), MONTH(), DAY()**:
-   - Extracts components from a date.
-
-   Example:
-   ```sql
-   SELECT
-       first_name,
-       YEAR(hire_date) AS hire_year,
-       MONTH(hire_date) AS hire_month,
-       DAY(hire_date) AS hire_day
-   FROM employees;
-   ```
-
-   Output:
-   ```
-   | first_name | hire_year | hire_month | hire_day |
-   |------------|-----------|------------|----------|
-   | Rohit      | 2022      | 1          | 15       |
-   | Pankaj     | 2021      | 3          | 20       |
-   | Nishant    | 2023      | 2          | 10       |
-   | Neelam     | 2022      | 11         | 5        |
-   | Tanvi      | 2021      | 9          | 30       |
-   | Kiran      | 2022      | 8          | 14       |
-   | Ruby       | 2023      | 4          | 25       |
-   | Priti      | 2022      | 6          | 8        |
-   | Aditi      | 2021      | 12         | 1        |
-   | Kritek     | 2023      | 3          | 15       |
-   ```
-
-These date and time functions allow you to work with date and time values in SQL, perform calculations, and extract specific components for analysis and reporting.
+These examples illustrate how to use various date functions in MySQL. You can adapt these functions based on your specific date-related requirements.
