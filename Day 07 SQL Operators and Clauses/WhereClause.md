@@ -147,3 +147,73 @@ Now, let's explore the SQL WHERE clause with various examples:
    | 3          | Kiran     | Desai    | IT         | 60000.00 | 2021-03-10 |
    | 5          | Kritek    | Singh    | HR         | 48000.00 | 2022-02-25 |
    ```
+-----
+In MySQL, the `SELECT` statement is used to retrieve data from one or more tables. The `WHERE` clause is commonly used in conjunction with `SELECT` to specify a condition for filtering the rows that should be returned. Here's a basic syntax for a simple `SELECT` statement with a `WHERE` clause:
+
+```sql
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+Here, `column1, column2, ...` are the columns you want to retrieve, `table_name` is the name of the table from which you want to retrieve data, and `condition` is the filtering condition.
+
+Here are some examples of using the `WHERE` clause with different conditions:
+
+1. **Equal to a specific value:**
+   ```sql
+   SELECT * 
+   FROM employees 
+   WHERE department_id = 1;
+   ```
+
+2. **Not equal to a specific value:**
+   ```sql
+   SELECT * 
+   FROM products 
+   WHERE category_id <> 5;
+   ```
+
+3. **Greater than or equal to a value:**
+   ```sql
+   SELECT * 
+   FROM orders 
+   WHERE total_amount >= 1000;
+   ```
+
+4. **Less than a value:**
+   ```sql
+   SELECT * 
+   FROM students 
+   WHERE age < 18;
+   ```
+
+5. **Combining conditions with AND:**
+   ```sql
+   SELECT * 
+   FROM customers 
+   WHERE city = 'New York' AND state = 'NY';
+   ```
+
+6. **Combining conditions with OR:**
+   ```sql
+   SELECT * 
+   FROM products 
+   WHERE category_id = 1 OR category_id = 2;
+   ```
+
+7. **Checking if a value is within a range:**
+   ```sql
+   SELECT * 
+   FROM employees 
+   WHERE salary BETWEEN 50000 AND 80000;
+   ```
+
+8. **Checking if a value is NULL:**
+   ```sql
+   SELECT * 
+   FROM orders 
+   WHERE customer_id IS NULL;
+   ```
+
+These are just basic examples, and you can create more complex conditions using logical operators (`AND`, `OR`, `NOT`) and parentheses to group conditions as needed. Remember to adapt the examples to your specific database schema and requirements.
