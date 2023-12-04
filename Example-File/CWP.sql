@@ -427,3 +427,185 @@ ELSE 'Done(y) Payment'
 end as Amount_Due
 from payment;
 
+
+
+------ 
+
+-- Date() 
+use cwp;
+
+CREATE TABLE events (
+    event_id INT PRIMARY KEY,
+    event_name VARCHAR(50),
+    event_date DATE
+);
+
+INSERT INTO events(event_id, event_name, event_date)
+VALUES
+    (1, 'Meeting', '2023-01-15'),
+    (2, 'Conference', '2023-02-20'),
+    (3, 'Training', '2023-03-25'),
+    (4, 'Workshop', '2023-04-10'),
+    (5, 'Seminar', '2023-05-05');
+
+select * from events;
+
+SELECT CURDATE();
+
+INSERT INTO events(event_id, event_name, event_date)
+VALUES (6, 'Exam', CURDATE());
+
+-- DATEDIFF(date1, date2):
+SELECT event_name, DATEDIFF(event_date, CURDATE()) AS days_until_event FROM events;
+
+-- DATE_ADD(date, INTERVAL value unit):
+SELECT event_name, event_date, DATE_ADD(event_date, INTERVAL 7 DAY) AS new_date FROM events;
+
+-- DATE_SUB(date, INTERVAL value unit):
+SELECT event_name, event_date, DATE_SUB(event_date, INTERVAL 3 MONTH) AS new_date FROM events;
+
+SELECT event_name, event_date, DATE_SUB(event_date, INTERVAL 3 year) AS new_date FROM events;
+SELECT event_name, event_date, DATE_SUB(event_date, INTERVAL 3 day) AS new_date FROM events;
+-- DATE_FORMAT(date, format)
+SELECT event_name, DATE_FORMAT(event_date, '%d-%m-%y') AS formatted_date FROM events;
+-- time()
+-- NOW() 
+SELECT NOW() AS current_datetime;
+SELECT CURTIME();
+-- Aggregate Function
+select * from employees;
+
+-- COUNT():
+use p4n01;
+select * from customers;
+select count(creditlimit) as total_credit from customers;
+
+SELECT COUNT(*) AS total_records
+FROM employees;
+
+-- SUM():
+select sum(creditlimit) as total_credit from customers;
+
+-- AVG():
+select AVG(creditlimit) as total_credit from customers;
+
+-- MIN():
+select min(creditlimit) as min from customers;
+-- max();
+select max(creditlimit) as min from customers;
+
+-- GROUP BY clause 
+select * from customers;
+
+select country,count(country) as total_country 
+from customers
+GROUP BY country;
+
+select sum(creditlimit) as total_credit 
+from customers
+where country = "usa";
+
+-- HAVING
+SELECT city, SUM(creditlimit) AS TotalSales
+FROM customers
+GROUP BY city
+HAVING SUM(creditlimit) > 50000;
+ 
+SELECT city , sum(creditlimit) as total
+FROM customers
+GROUP BY city
+HAVING SUM(creditlimit) > 0.0;
+
+-- Joins
+Create DATABASE codeswithpankaj;
+use codeswithpankaj;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2)
+);
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (101, 1, '2023-01-15', 250.00),
+    (102, 2, '2023-02-20', 120.50),
+    (103, 3, '2023-03-10', 320.75),
+    (105, 4, '2023-05-12', 210.00);
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (107, 7, '2023-01-19', 2900.00);
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (108, 8, '2023-01-19', 2900.00);
+    
+Select * from customers;
+Select * from orders;
+-- SELECT c.FirstName, c.LastName, o.OrderDate
+-- FROM Customers AS c
+-- LEFT JOIN Orders AS o ON c.CustomerID = o.CustomerID;
+
+select orders.orderid,orders.totalamount, 
+customers.firstname,customers.email
+from customers join orders
+on customers.customerid = orders.customerid;
+
+select orders.orderid,orders.totalamount, 
+customers.firstname,customers.email
+from customers 
+left join orders
+on customers.customerid = orders.customerid;
+
+select orders.orderid,orders.totalamount, 
+customers.firstname,customers.email
+from customers 
+right join orders
+on customers.customerid = orders.customerid;
+
+select orders.orderid,orders.totalamount, 
+customers.firstname,customers.email
+from customers 
+INNER join orders
+on customers.customerid = orders.customerid;
+
+
+select orders.orderid,orders.totalamount, 
+customers.firstname,customers.email
+from customers 
+left join orders
+on customers.customerid = orders.customerid
+UNION
+select orders.orderid,orders.totalamount, 
+customers.firstname,customers.email
+from customers 
+right join orders
+on customers.customerid = orders.customerid;
+
+-- SELECT *
+-- FROM Customers
+-- WHERE age = (
+--   SELECT min(age)
+--   FROM Customers
+-- );
+
+select * from orders
+where totalamount =(
+select max(totalamount)
+from orders
+);
