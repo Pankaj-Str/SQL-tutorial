@@ -156,7 +156,60 @@ where amount in (2.99,0.00);
 select * from payment 
 where amount between 0.00 and 2.99;
 
+-- date : 9 feb 2024
 
+-- limit top , fatch first 
+use sakila;
+
+select * from payment;
+
+select * from payment 
+limit 3;
+
+-- group by 
+
+select amount from payment;
+
+select amount from payment
+group by amount;
+
+-- count()
+
+select amount , count(amount) as total_numbers 
+from payment
+group by amount;
+
+-- like 
+
+
+select * from actor
+where first_name like 'zero';
+
+select * from actor
+where first_name like 'a%';
+
+select * from actor
+where first_name like '%a';
+
+select * from actor
+where first_name like '%a%';
+
+
+
+-- order by 
+select * from payment
+order by amount asc;
+
+select * from payment
+order by amount desc;
+
+select * from actor;
+
+select * from actor
+order by first_name asc;
+
+select * from actor
+order by first_name desc;
 
 
 
