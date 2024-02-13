@@ -211,6 +211,79 @@ order by first_name asc;
 select * from actor
 order by first_name desc;
 
+-- date : 13 feb 2024
+# UNION
 
+create database company;
+use company;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Suppliers (
+    SupplierID INT PRIMARY KEY,
+    CompanyName VARCHAR(100),
+    Email VARCHAR(100)
+);
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com');
+
+INSERT INTO Suppliers (SupplierID, CompanyName, Email)
+VALUES
+    (101, 'ABC Inc.', 'abc@codeswithpankaj.com'),
+    (102, 'XYZ Ltd.', 'xyz@codeswithpankaj.com'),
+    (103, 'Company A', 'companya@p4n.in');
+    
+INSERT INTO Suppliers (SupplierID, CompanyName, Email)
+VALUES(104, 'ABC Inc1.', 'abc@codeswithpankaj.com');
+
+SELECT Email FROM Customers
+UNION
+SELECT Email FROM Suppliers;
+
+SELECT Email FROM Customers
+UNION all
+SELECT Email FROM Suppliers;
+
+# Subquery
+
+-- SELECT *
+-- FROM Customers
+-- WHERE age = (
+-- SELECT min(age)
+-- FROM Customers);
+select * from payment where 
+amount = (
+select min(amount) from payment	
+);
+
+select * from payment where 
+amount = (
+select max(amount) from payment	
+);
+
+# HAVING
+# MIN() and MAX()
+
+use sakila;
+
+select * from payment;
+
+select min(amount) as min_amount from payment;
+select max(amount)  from payment;
+
+# SUM() AND AVG()
+select sum(amount) from payment;
+select avg(amount)  from payment;
 
 
