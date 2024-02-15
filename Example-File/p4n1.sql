@@ -287,3 +287,83 @@ select sum(amount) from payment;
 select avg(amount)  from payment;
 
 
+-- date : 15 Feb 2023
+-- 1	Full Join
+create database db1;
+use db1;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2)
+);
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (101, 1, '2023-01-15', 250.00),
+    (102, 2, '2023-02-20', 120.50),
+    (103, 3, '2023-03-10', 320.75),
+    (105, 4, '2023-05-12', 210.00);
+    
+    
+select * from customers;
+select * from orders;    
+
+-- full join
+-- LEFT JOIN to get all customers and their orders
+SELECT c.FirstName, c.LastName, o.OrderDate
+FROM Customers AS c
+LEFT JOIN Orders AS o ON c.CustomerID = o.CustomerID
+UNION ALL
+-- RIGHT JOIN to get all orders and their associated customers
+SELECT c.FirstName, c.LastName, o.OrderDate
+FROM Customers AS c
+RIGHT JOIN Orders AS o ON c.CustomerID = o.CustomerID
+WHERE c.CustomerID IS NULL;
+
+-- 2	Inner Join
+SELECT c.FirstName, c.LastName, o.OrderDate
+FROM Customers AS c
+INNER JOIN Orders AS o ON c.CustomerID = o.CustomerID;
+
+-- 3	Left Join
+
+select orders.totalamount,customers.firstname,customers.email
+from customers
+left join orders
+on orders.customerid = customers.customerid;
+
+-- 4	Right Join
+
+select orders.totalamount,customers.firstname,customers.email
+from customers
+right join orders
+on orders.customerid = customers.customerid;
+
+
+-- having
+use sakila;
+
+SELECT COUNT(amount), amount
+FROM payment
+GROUP BY amount
+HAVING COUNT(amount) > 1000;
+
+select * from payment;
+
