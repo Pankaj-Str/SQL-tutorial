@@ -108,7 +108,61 @@ select * from payment
 where payment_id = 1;
 
 
+-- Date : 12 march 2024 
+-- delete 
+use sakila;
+select * from payment;
+
+-- DELETE FROM payment
+-- WHERE payment_id = 3;
+
+-- like 
+
+select * from actor;
+
+select * from actor 
+where first_name like 'nick';
+
+select * from actor 
+where first_name like 'a%';
+
+select * from actor 
+where first_name like '%a';
+
+select * from actor 
+where first_name like '%a%';
+
+-- top - limit
+select * from actor 
+limit 5;
+
+-- order by
+
+select * from payment;
+
+select * from payment 
+order by amount asc;
+
+select * from payment 
+order by amount desc;
+
+select * from actor 
+order by first_name asc;
+
+select * from actor 
+order by first_name desc;
+
+-- group by
+
+select amount  from payment
+group by amount;
 
 
+select amount , count(amount) as total_customers  from payment
+group by amount;
+
+-- distinct keyword
+
+select distinct amount  from payment;
 
 
