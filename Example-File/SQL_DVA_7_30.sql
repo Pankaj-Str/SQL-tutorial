@@ -165,4 +165,74 @@ group by amount;
 
 select distinct amount  from payment;
 
+-- Date : 14 March 2024 
+
+-- unions claus
+
+show databases;
+use cwp;
+show tables;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Suppliers (
+    SupplierID INT PRIMARY KEY,
+    CompanyName VARCHAR(100),
+    Email VARCHAR(100)
+);
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com');
+
+INSERT INTO Suppliers (SupplierID, CompanyName, Email)
+VALUES
+    (101, 'ABC Inc.', 'abc@codeswithpankaj.com'),
+    (102, 'XYZ Ltd.', 'xyz@codeswithpankaj.com'),
+    (103, 'Company A', 'companya@p4n.in');
+
+
+select email from customers
+union all
+select email from suppliers;
+
+-- truncate table 
+
+select * from customers;
+truncate customers;
+
+-- having
+
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY,
+    SalespersonName VARCHAR(50),
+    SaleAmount DECIMAL(10, 2)
+);
+INSERT INTO Sales (SaleID, SalespersonName, SaleAmount)
+VALUES
+    (1, 'Pankaj', 100.00),
+    (2, 'Nishant', 150.00),
+    (3, 'Kiran', 200.00),
+    (4, 'Tanvi', 100.00),
+    (5, 'Kritek', 250.00); 
+
+SELECT SalespersonName, SUM(SaleAmount) AS TotalSales
+FROM Sales
+GROUP BY SalespersonName
+HAVING SUM(SaleAmount) > 200;
+
+use sakila;
+
+select payment_id , sum(amount) as total from payment
+group by payment_id
+having sum(amount) > 5;
 
