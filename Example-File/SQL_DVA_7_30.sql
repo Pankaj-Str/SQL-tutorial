@@ -236,3 +236,108 @@ select payment_id , sum(amount) as total from payment
 group by payment_id
 having sum(amount) > 5;
 
+-- Date 16 march 2024
+
+-- view
+use sakila;
+
+select * from payment;
+
+create view extra_payment as
+select payment_id , payment_date , amount , amount + 500 as extra_amount 
+from payment; 
+
+
+select * from extra_payment;
+
+select * from actor_info;
+
+
+-- join
+
+create database cwp_join;
+use cwp_join;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2)
+);
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (101, 1, '2023-01-15', 250.00),
+    (102, 2, '2023-02-20', 120.50),
+    (103, 3, '2023-03-10', 320.75),
+    (105, 4, '2023-05-12', 210.00);
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (107, 7, '2026-01-15', 299.00);
+ 
+select * from customers;
+select * from orders;
+
+
+select orders.orderdate , orders.totalamount , customers.firstname , customers.customerid, customers.email
+from customers
+inner join orders 
+on customers.customerid = orders.customerid;
+
+
+select orders.orderdate , orders.totalamount , customers.firstname , customers.customerid, customers.email
+from customers
+left join orders 
+on customers.customerid = orders.customerid;
+
+select orders.orderdate , orders.totalamount , customers.firstname , customers.customerid, customers.email
+from customers
+right join orders 
+on customers.customerid = orders.customerid;
+
+
+select orders.orderdate , orders.totalamount , customers.firstname , customers.customerid, customers.email
+from customers
+left join orders 
+on customers.customerid = orders.customerid
+union
+select orders.orderdate , orders.totalamount , customers.firstname , customers.customerid, customers.email
+from customers
+right join orders 
+on customers.customerid = orders.customerid;
+
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    ManagerID INT
+);
+
+INSERT INTO Employees (EmployeeID, FirstName, LastName, ManagerID)
+VALUES
+    (1, 'Pankaj', 'Sharma', NULL), -- Pankaj is the top-level manager
+    (2, 'Nishant', 'Patel', 1),    -- Nishant reports to Pankaj
+    (3, 'Kiran', 'Desai', 1),      -- Kiran reports to Pankaj
+    (4, 'Tanvi', 'Mehta', 2),      -- Tanvi reports to Nishant
+    (5, 'Kritek', 'Singh', 2);     -- Kritek reports to Nishant
+
+SELECT e.FirstName AS EmployeeFirstName, e.LastName AS EmployeeLastName,
+       m.FirstName AS ManagerFirstName, m.LastName AS ManagerLastName
+FROM Employees e
+LEFT JOIN Employees m ON e.ManagerID = m.EmployeeID;
