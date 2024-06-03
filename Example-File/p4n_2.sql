@@ -7952,4 +7952,81 @@ select sum(creditlimit) as total_credit from customers where creditlimit between
 select count(customername) as total_customers from customers where creditlimit between 30000 and 70000;
 
 
+show databases;
+
+create database p4n;
+
+use p4n;
+
+show tables;
+
+-- where
+
+select * from customers;
+-- check count row in table 
+select count(*) from customers;
+
+select * from customers
+where country = "USA";
+
+-- and 
+select * from customers
+where creditlimit < 50000 and country = "USA";	
+-- or 
+select * from customers
+where creditlimit < 50000 or country = "USA";
+-- not 
+select * from customers
+where not country = "USA";
+-- between
+select customerNumber,customerName,creditlimit from customers 
+where creditlimit between 30000 and 70000;
+-- in 
+
+-- sum()
+select sum(creditlimit) as total_credit from customers where creditlimit between 30000 and 70000;
+-- count()
+select count(customername) as total_customers from customers where creditlimit between 30000 and 70000;
+
+-- Date : 03 Jun 2024
+-- Distinct Clause
+
+create database p4n1;
+use p4n1;
+show tables;
+select * from payments;
+
+select distinct customernumber from payments;
+
+-- GroupBy Clause
+
+select customernumber from payments
+group by customernumber;
+
+-- use count() function in group by 
+
+select customernumber , count(customernumber) as total_customers from  payments
+group by customernumber;
+
+
+-- LIKE Operator
+
+select * from customers
+where customername like "A%";
+select * from customers
+where customername like "%A%";
+select * from customers
+where customername like "%s";
+
+
+-- NOT EQUAL
+-- Top Clause
+-- UNION
+-- null not_null
+-- EXISTS Operator
+-- Having Clause
+
+
+
+
 
