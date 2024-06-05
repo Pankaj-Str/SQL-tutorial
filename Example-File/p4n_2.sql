@@ -8019,12 +8019,52 @@ select * from customers
 where customername like "%s";
 
 
--- NOT EQUAL
--- Top Clause
+-- Date : 05 Jun 2024
+
+-- NOT
+select * from customers
+where not country = "USA";
+
+-- Top Clause (limit)
+select * from customers
+limit 4;
+-- Descending Order
+
+select * from payments
+order by amount desc;
+
+-- Ascending Order
+select * from payments
+order by amount asc limit 5;
+
+select customernumber , count(customernumber) as total_customers from payments
+group by customernumber;
+
+select customernumber ,sum(amount) as total_amount , count(customernumber) as total_customers from payments 
+group by customernumber;
+
+
+-- is null 
+select *  from customers
+where state is null;
+
+-- is not null
+
+select *  from customers
+where state is not null;
+
 -- UNION
--- null not_null
--- EXISTS Operator
--- Having Clause
+
+select count(customernumber) from payments;
+select count(customernumber) from customers;
+
+select count(customernumber) from payments
+union
+select count(customernumber) from customers;
+
+select customernumber from payments
+union
+select customernumber from customers;
 
 
 
