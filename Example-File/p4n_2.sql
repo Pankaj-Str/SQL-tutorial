@@ -8067,6 +8067,80 @@ union
 select customernumber from customers;
 
 
+-- Date : 07 Jun 2024
 
+-- EXISTS Operator
+-- Having Clause
+
+-- SELECT COUNT(customer_id), country
+-- FROM Customers
+-- GROUP BY country
+-- HAVING COUNT(customer_id) > 1;
+use p4n;
+select count(creditlimit) as total_count ,creditlimit from customers group by creditlimit having count(creditlimit) > 20; 
+select min(creditlimit) as min_limit , creditlimit from customers group by creditlimit having creditlimit < 1; 
+
+-- select min(creditlimit) as min_limit  from customers;
+-- select * from customers where creditlimit = 0.00;
+
+
+show tables;
+
+
+
+-- SQL - Unique Key
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100) UNIQUE
+);
+-- Inserting records into the "Students" table
+INSERT INTO Students (FirstName, LastName, Email)
+VALUES
+    ('Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    ('Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    ('Kiran', 'Desai', 'kiran@codeswithpankaj.com');
+INSERT INTO Students (FirstName, LastName, Email) VALUES ('Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com');
+
+-- SQL - Primary Key
+
+CREATE TABLE p4nEmployees(
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50)
+);
+
+-- Inserting records into the "Employees" table
+INSERT INTO p4nEmployees (EmployeeID, FirstName, LastName)
+VALUES
+    (1, 'Pankaj', 'Sharma'),
+    (2, 'Nishant', 'Patel'),
+    (3, 'Kiran', 'Desai');
+
+-- SQL - Foreign Key
+
+CREATE TABLE p4nCustomers(
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50)
+);
+
+CREATE TABLE p4nOrders(
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    FOREIGN KEY (CustomerID) REFERENCES p4nCustomers(CustomerID)
+);
+
+INSERT INTO p4nCustomers (CustomerID, FirstName, LastName)
+VALUES
+    (1, 'Pankaj', 'Sharma'),
+    (2, 'Nishant', 'Patel');
+    
+INSERT INTO p4nOrders (OrderID, CustomerID, OrderDate) VALUES (101, 2, '2023-01-15');
+INSERT INTO p4nOrders (OrderID, CustomerID, OrderDate) VALUES (102, 1, '2024-01-15');
+
+select * from p4norders;
 
 
