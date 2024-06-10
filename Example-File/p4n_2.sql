@@ -8144,3 +8144,66 @@ INSERT INTO p4nOrders (OrderID, CustomerID, OrderDate) VALUES (102, 1, '2024-01-
 select * from p4norders;
 
 
+-- Date : 10 jun 2024
+-- joins
+
+-- left 
+
+create database p4n_join;
+use p4n_join;
+
+CREATE TABLE Customers(
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2)
+);
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (101, 1, '2023-01-15', 250.00),
+    (102, 2, '2023-02-20', 120.50),
+    (103, 3, '2023-03-10', 320.75),
+    (105, 4, '2023-05-12', 210.00);
+    
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES(106, 10, '2023-01-17', 560.00);
+
+select * from customers;
+select * from orders;
+
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount from customers
+left join orders on customers.customerid = orders.CustomerID;
+
+-- right join 
+
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount from customers
+right join orders on customers.customerid = orders.CustomerID;
+
+
+-- inner 
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount from customers
+inner join orders on customers.customerid = orders.CustomerID;
+
+-- full join
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount from customers
+left join orders on customers.customerid = orders.CustomerID
+union
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount from customers
+right join orders on customers.customerid = orders.CustomerID;
+
