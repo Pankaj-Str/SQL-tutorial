@@ -245,13 +245,89 @@ select distinct city from customers;
 select distinct count(city) from customers;
 
 
+--  date : 23 july 2024 
 -- Group by
--- Having
--- in 
--- like  
--- union 
--- limit/top
--- not 
 
+use sakila;
+
+select * from payment;
+
+select amount from payment group by amount;
+
+-- using count into group by 
+
+select amount , count(amount) as total_count from payment group by amount;
+
+use classicmodels;
+
+select * from customers;
+
+-- find number of city with count
+
+select city , count(city) as total_city from customers group by city;
+select country , count(country) as total_country from customers group by country;
+
+select count(country) as total_country from customers;
+
+-- in 
+
+select * from customers where country in ("USA","Poland");
+
+select * from customers where country = "USA" and state = "CA" and creditlimit > 60000;
+
+-- like  
+
+select customername , phone, state , city , country , creditlimit from customers;
+
+select customername , phone, state , city , country , creditlimit from customers 
+where customername like "a%";
+
+select customername , phone, state , city , country , creditlimit from customers 
+where customername like "%z%";
+
+select customername , phone, state , city , country , creditlimit from customers 
+where customername like "%e" ;
+
+-- limit/top
+select *  from customers limit 2;
+
+-- union 
+create database p4n1;
+use p4n1;
+show tables;
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Suppliers (
+    SupplierID INT PRIMARY KEY,
+    CompanyName VARCHAR(100),
+    Email VARCHAR(100)
+);
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com');
+
+INSERT INTO Suppliers (SupplierID, CompanyName, Email)
+VALUES
+    (101, 'ABC Inc.', 'abc@codeswithpankaj.com'),
+    (102, 'XYZ Ltd.', 'xyz@codeswithpankaj.com'),
+    (103, 'Company A', 'companya@p4n.in');
+
+select * from customers;
+select * from Suppliers;
+
+select email from customers union select email from Suppliers;
+
+-- not 
+-- Having
 
 
