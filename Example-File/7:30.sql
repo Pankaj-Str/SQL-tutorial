@@ -330,4 +330,74 @@ select email from customers union select email from Suppliers;
 -- not 
 -- Having
 
+-- date : 25 July 2024
 
+show databases;
+
+use classicmodels;
+
+
+-- not 
+
+select * from customers;
+
+select * from customers where not country = "USA";
+
+select * from customers where not country like "U%";
+-- Having
+
+select creditlimit , count(creditlimit) as total_count from customers group by creditlimit having min(creditlimit);
+
+-- SQL Keys
+
+-- SQL - Primary Key : 
+use p4n1;
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50)
+);
+
+-- Inserting records into the "Employees" table
+INSERT INTO Employees (EmployeeID, FirstName, LastName)
+VALUES
+    (1, 'Pankaj', 'Sharma'),
+    (2, 'Nishant', 'Patel'),
+    (3, 'Kiran', 'Desai');
+
+-- FOREIGN KEY
+    
+CREATE TABLE p4n_Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    FOREIGN KEY (CustomerID) REFERENCES p4n_Customers(CustomerID)
+); 
+
+
+INSERT INTO p4n_Customers (CustomerID, FirstName, LastName)
+VALUES
+    (1, 'Pankaj', 'Sharma'),
+    (2, 'Nishant', 'Patel');
+    
+INSERT INTO p4n_Customers (CustomerID, FirstName, LastName)
+VALUES
+    (3, 'Joy', 'Sharma');
+    
+INSERT INTO Orders (OrderID, CustomerID, OrderDate)
+VALUES
+    (101, 1, '2023-01-15'),
+    (102, 2, '2023-02-20'); 
+    
+INSERT INTO Orders (OrderID, CustomerID, OrderDate)
+VALUES
+    (103, 3, '2023-01-15');
+    
+select * from p4n_customers;    
+select * from orders;    
