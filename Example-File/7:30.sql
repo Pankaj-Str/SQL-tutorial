@@ -401,3 +401,70 @@ VALUES
     
 select * from p4n_customers;    
 select * from orders;    
+
+-- Date : 27 - july - 2024   
+    
+-- function 
+
+-- count()
+-- sum()
+-- min()
+-- max()
+
+use classicmodels;
+select min(creditlimit) from customers;
+select max(creditlimit) from customers;
+
+-- Date and Time Functions
+
+-- CURDATE()
+select curdate();
+
+-- DATEDIFF(date1, date2)
+
+show tables;
+
+select * from orders;
+
+-- SELECT event_name, DATEDIFF(event_date, CURDATE()) AS days_until_event FROM events;
+select ordernumber , customernumber , datediff(shippeddate,orderdate) as take_time from orders;
+select ordernumber , customernumber , datediff(curdate() , orderdate) as take_time from orders;
+
+-- DATE_ADD(date, INTERVAL value unit)
+-- SELECT event_name, event_date, DATE_ADD(event_date, INTERVAL 7 DAY) AS new_date FROM events; 
+select ordernumber , shippeddate, date_add(shippeddate , interval 10 day) as new_update from orders;   
+select ordernumber , shippeddate, date_add(shippeddate , interval 10 month) as new_update from orders;   
+select ordernumber , shippeddate, date_add(shippeddate , interval 10 year) as new_update from orders;
+
+-- DATE_SUB(date, INTERVAL value unit)  
+select ordernumber , shippeddate, date_sub(shippeddate , interval 10 day) as new_update from orders;   
+select ordernumber , shippeddate, date_sub(shippeddate , interval 10 month) as new_update from orders;   
+select ordernumber , shippeddate, date_sub(shippeddate , interval 10 year) as new_update from orders;
+
+-- DATE_FORMAT(date, format)
+SELECT ordernumber,orderdate, DATE_FORMAT(orderdate, '%Y-%m-%d') AS formatted_date FROM orders; 
+SELECT ordernumber,orderdate, DATE_FORMAT(orderdate, '%m-%Y-%d') AS formatted_date FROM orders; 
+SELECT ordernumber,orderdate, DATE_FORMAT(orderdate, '%Y-%m') AS formatted_date FROM orders; 
+SELECT ordernumber,orderdate, DATE_FORMAT(orderdate, '%Y') AS formatted_date FROM orders; 
+
+SELECT NOW() AS current_datetime;
+SELECT CURTIME();
+
+
+select * from customers;
+-- CONCAT()
+SELECT customernumber,CONCAT(contactfirstname, ' ', contactlastname) AS full_name FROM customers;
+
+-- SUBSTRING() - ms sql
+SELECT SUBSTRING(email, 1, CHARINDEX('@', email) - 1) AS username FROM employees;
+show tables;
+select * from employees;
+
+-- UPPER()
+SELECT UPPER(firstname) AS name_uppercase FROM employees;
+
+-- LEFT()
+SELECT LEFT(firstname, 4) AS first_name_short FROM employees;
+SELECT distinct firstname , CONCAT(LEFT(firstname, 4),"@p4n.in") AS first_name_short FROM employees;
+
+
