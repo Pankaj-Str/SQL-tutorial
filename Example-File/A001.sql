@@ -316,5 +316,75 @@ on departments.departmentid = employee.departmentid group by departments.departm
 
 
 
+show databases;
+create database p4n;
+use p4n;
+
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100)
+);
+
+INSERT INTO employees (employee_id, first_name, last_name, email)
+VALUES
+    (1, 'Rohit', 'Gupta', 'rohit@codeswithpankaj.com'),
+    (2, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (3, 'Nishant', 'Verma', 'nishant@codeswithpankaj.com'),
+    (4, 'Neelam', 'Singh', 'neelam@codeswithpankaj.com'),
+    (5, 'Tanvi', 'Patel', 'tanvi@codeswithpankaj.com'),
+    (6, 'Kiran', 'Yadav', 'kiran@codeswithpankaj.com'),
+    (7, 'Ruby', 'Jain', 'ruby@codeswithpankaj.com'),
+    (8, 'Priti', 'Mehta', 'priti@codeswithpankaj.com'),
+    (9, 'Aditi', 'Raj', 'aditi@codeswithpankaj.com'),
+    (10, 'Kritek', 'Agarwal', 'kritek@codeswithpankaj.com');
+    
+
+
+select * from employees;
+
+
+
+
+
+
+create view  list_employee as
+select concat(first_name,' ',last_name) as name , email 
+from employees;
+
+
+select * from list_employee;
+
+
+-- Creating a UDF
+CREATE FUNCTION ConcatNames(first_name VARCHAR(50), last_name VARCHAR(50),salary int)
+RETURNS VARCHAR(100)
+RETURN CONCAT(first_name, ' ', last_name);
+
+-- Using the UDF in a query
+SELECT employee_id, ConcatNames(first_name, last_name) AS full_name
+FROM employees;
+
+-- mysql> CREATE FUNCTION hello (s CHAR(20))
+-- mysql> RETURNS CHAR(50) DETERMINISTIC
+--        RETURN CONCAT('Hello, ',s,'!');
+-- Query OK, 0 rows affected (0.00 sec)
+-- mysql> SELECT hello('world');
+
+create function upcl (cl int)
+returns int 
+return cl+500;
+
+
+use classicmodels;
+
+select creditlimit , upcl(creditlimit) from customers;
+
+
+
+
+
+  
 
 
