@@ -92,6 +92,40 @@ select * from creditcard1 where id = 4;
 
 select customer_name,card_number, bank_name from creditcard1;
 
+-- date : 16 Nov 2024
+
+-- 1	SQL - Where Clause
+use classicmodels;
+-- show table list 
+show tables;
+select * from customers;
+
+select * from customers where customernumber = 103;
+select * from customers where creditlimit > 50000;
+select * from customers where creditlimit < 50000;
+
+-- 2	SQL - Top Clause (limit)
+select * from customers limit 5;
+-- 3	SQL - Distinct Clause
+select country from customers;
+select distinct country from customers;
+
+-- count()
+select distinct count(country) from customers; 
+
+-- 4	SQL - Group By Clause
+
+select country from customers group by country;
+
+select country , count(country) as total_country from customers group by country;
+
+-- sum()
+select sum(creditlimit) as total_creditlimit from customers;
+
+-- 6	SQL - AND & OR
+select * from customers where creditlimit < 50000 or country = "USA";
+select * from customers where creditlimit < 50000 and country = "USA";
+
 
 
 
