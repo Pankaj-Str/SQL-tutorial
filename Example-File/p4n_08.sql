@@ -127,6 +127,53 @@ select * from customers where creditlimit < 50000 or country = "USA";
 select * from customers where creditlimit < 50000 and country = "USA";
 
 
+-- 5	SQL - Having Clause
+-- 8	SQL - LIKE Operator
+
+use classicmodels;
+
+select * from customers;
+
+select * from customers where customername like "A%";
+select * from customers where customername like "%A%";
+select * from customers where customername like "%e";
+
+-- 9	SQL - IN Operator
+-- 13	SQL - NOT Operator
+
+select * from customers where not country = "USA";
+
+-- 14	SQL - NOT EQUAL
+
+select * from customers where  country != "USA";
+
+-- 15	SQL - IS NOT NULL and NULL
+
+
+select * from customers where  state is null;	
+-- count()
+select count(customername) as total_null from customers where state is null;
+
+select * from customers where  state is not null;	
+-- count()
+
+select count(customername) as total_null from customers where state is not null;
+
+
+-- 16	SQL - UNION And UNION ALL
+-- 18	SQL - Aliases
+
+select * from customers ;
+
+select customername,city,state,country, creditlimit from customers where country = "USA";
+  
+select customername,city,state,country, creditlimit from customers where country = "USA" and creditlimit > 25000;  
+
+select customername,city,state,country, creditlimit, 
+(creditlimit*5/100) as update_tax ,
+creditlimit+(creditlimit*5/100) as update_creditlimit 
+from customers where country = "USA" and creditlimit > 25000;
+
 
 
 
