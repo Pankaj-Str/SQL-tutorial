@@ -175,7 +175,34 @@ creditlimit+(creditlimit*5/100) as update_creditlimit
 from customers where country = "USA" and creditlimit > 25000;
 
 
+-- Date 23 Dec 2024
+create database p4n01;
 
+use p4n01;
+
+
+create table customers(
+	customerid int primary key,
+    firstname varchar(50),
+    lastname varchar(50)
+);
+
+select * from customers;
+
+create table orders(
+	orderid int primary key,
+    customerid int,
+    orderdate date,
+    foreign key (customerid) references customers(customerid)
+    
+);
+
+select * from customers;
+select * from orders;
+
+-- yyymmdd
+insert into orders (orderid,customerid,orderdate) value (1,101,'2024-01-15');
+insert into customers (customerid,firstname,lastname) value (101,'joy','kumar');
 
 
 
