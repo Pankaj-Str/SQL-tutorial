@@ -204,5 +204,69 @@ select * from orders;
 insert into orders (orderid,customerid,orderdate) value (1,101,'2024-01-15');
 insert into customers (customerid,firstname,lastname) value (101,'joy','kumar');
 
+-- Join
+-- Date : 28 Nov 2024 
+create database cwpc;
+use cwpc;
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2)
+);
+
+show tables;
+
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (101, 1, '2023-01-15', 250.00),
+    (102, 2, '2023-02-20', 120.50),
+    (103, 3, '2023-03-10', 320.75),
+    (105, 4, '2023-05-12', 210.00),
+    (106, 6, '2023-10-12', 450.00);
+    
+select * from customers;
+select * from orders;   
+
+-- left join 
+select customers.firstname, customers.email , orders.totalamount , orders.orderdate
+from customers left join orders 
+on customers.customerid = orders.customerid; 
+
+-- right join
+select customers.firstname, customers.email , orders.totalamount , orders.orderdate
+from customers right join orders 
+on customers.customerid = orders.customerid; 
+
+-- full join 
+
+select customers.firstname, customers.email , orders.totalamount , orders.orderdate
+from customers left join orders 
+on customers.customerid = orders.customerid
+union
+select customers.firstname, customers.email , orders.totalamount , orders.orderdate
+from customers right join orders 
+on customers.customerid = orders.customerid; 
+
+-- inner join
+select customers.firstname, customers.email , orders.totalamount , orders.orderdate
+from customers inner join orders 
+on customers.customerid = orders.customerid; 
 
 
