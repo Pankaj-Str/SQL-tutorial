@@ -99,7 +99,58 @@ select * from customers order by customername desc;
 
 
 
+-- Introduction to SQL
+-- Create, Drop and Select Database
+-- CREATE OR DROP TABLE
+-- SQL INSERT Query
+-- SQL SELECT Query
+-- SQL WHERE Clause
+-- SQL AND and OR Operators
+-- SQL UPDATE Query
+-- SQL DELETE Query
 
+-- SQL LIKE Clause
+
+use classicmodels;
+select * from customers;
+
+select * from customers where customername like "a%";
+select * from customers where customername like "%a%";
+select * from customers where customername like "%e";
+
+-- SQL TOP Clause - limit
+
+select * from customers limit 5;
+-- SQL ORDER BY Clause
+select * from customers order by creditlimit asc;
+select * from customers order by creditlimit desc;
+-- SQL Group By
+-- count()
+
+select Country from customers group by country;
+
+select country , count(Country) as total_country from customers group by country;
+ 
+-- SQL Distinct Keyword
+
+select distinct country from customers;
+
+-- SQL Constraints (key)
+	-- Unique Key
+    -- Primary Key
+    -- Foreign Key
+-- SQL HAVING CLAUSE
+
+select country, sum(creditlimit) as total_sum
+from customers group by country;
+
+select country, sum(creditlimit) as total_sum
+from customers group by country having sum(creditlimit) > 200000;
+
+-- SQL Joins
+-- SQL Unions Clause
+-- SQL TRUNCATE TABLE -- epmty table
+-- SQL Transactions
 
 
 
