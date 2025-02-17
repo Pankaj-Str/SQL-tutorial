@@ -1,4 +1,4 @@
-# MySQL Transaction Example
+# MySQL Transaction
 
 # Complete MySQL transaction example with explanation.
 
@@ -82,5 +82,4 @@ COMMIT;
 2. Don't mix DDL (CREATE/ALTER/DROP) with DML (INSERT/UPDATE/DELETE) in transactions
 3. Choose the appropriate isolation level for your needs
 4. Handle errors properly to ensure proper rollback
-5. Be mindful of locks when running concurrent transactions
- ?​​​​​
+5. Be mindful of locks when running concurrent transactions.
