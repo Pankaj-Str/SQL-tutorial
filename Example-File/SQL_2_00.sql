@@ -90,3 +90,71 @@ select * from cwpc_emp;
 
 insert into cwpc_emp (name,age,city,dob,salary,mobile) 
 values("heena",20,"Surat","1998-11-23",45000.00,"7856987455");
+
+
+
+-- Date : 27 Feb 2025
+
+-- 1. Introduction to Database
+-- 2. Introduction to SQL
+-- 3. Create, Drop and Select Database
+-- 4. CREATE OR DROP TABLE
+-- 5. SQL INSERT Query
+-- 6. SQL SELECT Query
+-- 7. SQL WHERE Clause
+-- 9. SQL UPDATE Query
+-- 10. SQL DELETE Query
+
+show databases;
+use classicmodels;
+-- list of tables
+show tables;
+select * from customers;
+
+-- find the customer from usa
+-- = 
+select * from customers where country = "USA";
+-- < , >
+select * from customers where creditlimit > 50000;
+select * from customers where creditlimit < 50000;
+
+-- 8. SQL AND, OR Operators
+
+select * from customers where creditlimit < 50000 and country = "USA";
+
+select * from customers where creditlimit < 50000 or country = "USA";
+
+-- count()
+select count(customername) from customers where creditlimit < 50000 and country = "USA";
+
+-- Example Country USA credit limit - 1500
+select customername,city,state,country,creditlimit from customers;
+
+select customername,city,state,country,creditlimit , creditlimit - 1500 as Update_amount 
+from customers where country = "USA" and city = "NYC";
+
+-- 11. SQL LIKE Clause
+
+-- 12. SQL TOP Clause
+
+-- 13. SQL ORDER BY Clause
+
+-- 14. SQL Group By
+
+-- 15. SQL Distinct Keyword
+
+-- 16. SQL Constraints
+
+-- 17. SQL Joins
+
+-- 18. SQL Unions Clause
+
+-- 19. SQL TRUNCATE TABLE
+
+-- 20. SQL HAVING Clause
+
+-- 21. SQL Transactions
+
+-- 22. SQL View
+
+-- 23. SQL Useful Functions
