@@ -267,12 +267,71 @@ on customers.customerid = orders.customerid;
 
 -- 18. SQL Unions Clause
 
--- 19. SQL TRUNCATE TABLE
+create database cwpc11;
+use cwpc11;
 
--- 20. SQL HAVING Clause
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
 
--- 21. SQL Transactions
+CREATE TABLE Suppliers (
+    SupplierID INT PRIMARY KEY,
+    CompanyName VARCHAR(100),
+    Email VARCHAR(100)
+);
+
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com');
+
+INSERT INTO Suppliers (SupplierID, CompanyName, Email)
+VALUES
+    (101, 'ABC Inc.', 'abc@codeswithpankaj.com'),
+    (102, 'XYZ Ltd.', 'xyz@codeswithpankaj.com'),
+    (103, 'Company A', 'companya@p4n.in');
+
+
+show tables;
+select * from customers;
+select * from suppliers;
+
+SELECT Email FROM Customers
+UNION
+SELECT CompanyName FROM Suppliers;
 
 -- 22. SQL View
+-- cerate view 
+create view u_data as
+SELECT Email FROM Customers
+UNION
+SELECT Email FROM Suppliers;
 
+-- call view
+select * from u_data;
+
+
+
+-- 19. SQL TRUNCATE TABLE
+-- truncate table customers;
+
+-- 20. SQL HAVING Clause
+-- SELECT SalespersonName, SUM(SaleAmount) AS TotalSales
+-- FROM Sales
+-- GROUP BY SalespersonName
+-- HAVING SUM(SaleAmount) > 200;
+
+use classicmodels;
+select * from customers;
+-- group by country 
+select country , count(creditLimit) as total_no , sum(creditlimit) as total_sum from customers group by country having sum(creditlimit) < 100000;
+
+-- 21. SQL Transactions
 -- 23. SQL Useful Functions
