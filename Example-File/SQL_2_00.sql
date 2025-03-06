@@ -332,6 +332,8 @@ use classicmodels;
 select * from customers;
 -- group by country 
 
+-- 21. SQL Transactions 06 - March 2025
+
 -- Create a simple bank database
 CREATE DATABASE IF NOT EXISTS simple_bank;
 USE simple_bank;
@@ -391,5 +393,5 @@ ROLLBACK;
 SELECT * FROM accounts;
 select country , count(creditLimit) as total_no , sum(creditlimit) as total_sum from customers group by country having sum(creditlimit) < 100000;
 
--- 21. SQL Transactions
+
 -- 23. SQL Useful Functions
