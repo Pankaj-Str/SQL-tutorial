@@ -37,7 +37,19 @@ use cwpc01;
 -- column name  
 -- data 
 -- table name 
-create table 
+create table Employee(
+	id int, 
+    name varchar(50),
+    salary int,
+    city varchar(50)
+);
+
+-- show list of table
+show tables;
+
+-- show table 
+select * from Employee
+ 
 
 
 
