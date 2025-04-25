@@ -78,6 +78,8 @@ show tables;
 -- open table and show record
 select * from employee;
 
+delete from employee where id = 2;
+
 -- insert record into table 
 insert into employee (id,name,dob,salary,dept,city,email) 
 value(1,'Joy','1990-05-23',34000,'sales','mumbai','joy@cwpc.in');
@@ -116,6 +118,36 @@ insert into employee1 (id,name,dob,salary,dept,city,email)
 value(2,'Joy','1990-05-23',34000,'sales','mumbai','joy@cwpc.in');
 
 
+
+-- Date 25 April 2025
+
+show databases;
+
+use classicmodels;
+
+-- show list of tables
+show tables;
+
+select * from customers;
+
+-- where 
+
+select * from customers where state  = "CA";
+select * from customers where creditlimit  > 70000;
+
+-- and operator
+
+select * from customers where state = "CA" and creditlimit  > 70000;
+
+-- or operator
+select * from customers where state = "CA" or creditlimit  > 70000;
+-- update query 
+select customername,state ,phone,creditlimit from customers where state = "CA";
+select customername,state ,phone,creditlimit , creditlimit+500 as update_creditLimit from customers where state = "CA";
+-- delete 
+select * from customers where contactlastName = "King";
+
+-- SET SQL_SAFE_UPDATES = 0;
 
 
 
