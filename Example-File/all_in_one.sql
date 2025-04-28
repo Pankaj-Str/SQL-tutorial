@@ -150,9 +150,48 @@ select * from customers where contactlastName = "King";
 -- SET SQL_SAFE_UPDATES = 0;
 
 
+-- 28 April 2025
+-- like 
+
+use classicmodels;
+
+show tables;
+-- select table customers
+select * from customers;
+
+select * from customers where customername like "a%";
+select * from customers where customername like "%a%";
+select * from customers where customername like "%e";
+select * from customers where customername like "mini%";
 
 
+-- top (limit)
 
+select * from customers limit 5;
+
+-- order by
+
+select customername , creditlimit from customers order by creditlimit asc;
+select customername , creditlimit from customers order by creditlimit desc;
+
+select customername , creditlimit from customers order by customername desc;
+select customername , creditlimit from customers order by customername asc;
+
+select customername , creditlimit from customers order by creditlimit asc limit 5;
+
+-- group by
+select country , count(country) as total_customers from customers group by country;
+
+-- distinct keyword
+select distinct country from customers;
+
+-- count()
+select distinct count(country) from customers;
+
+
+-- sum() 
+
+select sum(creditlimit) as total_cd from customers  where country = "USA";
 
 
 
