@@ -293,3 +293,78 @@ SELECT Email FROM Suppliers;
 -- truncate table 
 
 truncate table customers;
+
+
+-- date 05 May 2025 
+-- Join
+
+-- left join 
+
+create database join_db;
+use join_db;
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2)
+);
+
+
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com'),
+    (7, 'Pooja', 'jain', 'pooja@codeswithpankaj.com');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (101, 1, '2023-01-15', 250.00),
+    (102, 2, '2023-02-20', 120.50),
+    (103, 3, '2023-03-10', 320.75),
+    (199, 4, '2023-05-12', 210.00),
+    (157, 5, '2023-05-22', 240.00),
+    (106, 10, '2023-05-10', 260.00),
+    (156, 8, '2023-05-1', 269.00);
+    
+truncate table customers;
+    
+select * from customers;    
+select * from orders;  
+
+
+-- left join 
+
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount 
+from customers left join orders on customers.customerid = orders.customerid;
+
+
+
+-- right join 
+
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount 
+from customers right join orders on customers.customerid = orders.customerid;
+
+-- inner join 
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount 
+from customers inner join orders on customers.customerid = orders.customerid;
+	
+	
+
+-- full
+
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount 
+from customers left join orders on customers.customerid = orders.customerid
+union
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount 
+from customers right join orders on customers.customerid = orders.customerid;
