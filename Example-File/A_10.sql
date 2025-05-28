@@ -139,8 +139,42 @@ select sum(creditlimit) from customers;
 select count(country) from customers where country = "USA";
 
 
--- -- update query 
--- -- delete 
+-- date : 28 May 2025
+
+-- where 
+
+use classicmodels;
+show tables;
+
+select * from customers;
+-- and operator
+select * from customers where country = "USA" and creditlimit <50000;
+-- or operator
+select * from customers where country = "USA" or creditlimit <50000;
+-- update query
+update customers
+set  creditlimit = 450000 where customernumber = 125; 
+
+select * from customers where customernumber = 125;
+
+-- delete 
+
+-- like 
+
+select * from customers where customername like "aut%";
+select * from customers where customername like "%a%";
+select * from customers where customername like "%e";
+
+-- top (Limit)
+
+select * from customers limit 5;
+-- order by
+select customername , creditlimit from customers order by creditlimit asc;
+select customername , creditlimit from customers order by creditlimit desc;
+select customername , creditlimit from customers order by customername desc;
+select customername , creditlimit from customers order by customername asc; 
+
+
 
 
 
