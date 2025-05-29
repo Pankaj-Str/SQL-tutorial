@@ -175,7 +175,61 @@ select customername,creditlimit from customers order by customername desc;
 
 
 
+-- date : 29 May 2025
+
+-- group by
+
+use classicmodels;
+select * from customers;
+
+select country from customers group by country;
+
+-- count()
+select country,count(country) as total_customers from customers group by country;
 
 
+-- distinct keyword
+
+select distinct country from customers;
+
+-- Constraints(keys)
+
+create database db01;
+
+use db01;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50)
+);
+
+INSERT INTO Customers (CustomerID, FirstName, LastName)
+VALUES
+    (1, 'Pankaj', 'Sharma'),
+    (2, 'Nishant', 'Patel'),
+    (3, 'Parag', 'Patel'),
+    (4, 'Khushbu', 'Jain');
+    
+select * from customers;    
 
 
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate)
+VALUES
+    (101, 1, '2023-01-15'),
+    (102, 2, '2023-02-20');
+    
+select * from orders;  
+
+INSERT INTO Customers (CustomerID, FirstName, LastName)
+VALUES(20, 'joy', 'Jain');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate)
+VALUES(100, 20, '2023-02-20');  
