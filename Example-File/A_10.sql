@@ -176,8 +176,58 @@ select customername , creditlimit from customers order by customername asc;
 
 
 
+-- group by
+
+use classicmodels;
+select * from customers;
+
+select country from customers group by country;
+
+-- count()
+select country , count(country) as total_customer from customers group by country;
+-- sum()
+select sum(creditlimit) as total_credit_limit from customers where country = "USA";
+
+-- distinct keyword
+select distinct country from customers;
+
+-- Constraints (key)
+
+-- Foreign Key
+
+create database db009;
+use db009;
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50)
+);
+
+-- Inserting records into the "Customers" and "Orders" tables
+INSERT INTO Customers (CustomerID, FirstName, LastName)
+VALUES
+    (1, 'Pankaj', 'Sharma'),
+    (2, 'Nishant', 'Patel');
+    
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);    
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate)
+VALUES
+    (101, 1, '2023-01-15'),
+    (102, 2, '2023-02-20');
+    
+select * from customers;    
+select * from orders;    
 
 
+INSERT INTO Orders (OrderID, CustomerID, OrderDate)
+VALUES(100, 10, '2023-01-16');
 
-
+INSERT INTO Customers (CustomerID, FirstName, LastName)
+VALUES(10, 'Joy', 'jain');
 
