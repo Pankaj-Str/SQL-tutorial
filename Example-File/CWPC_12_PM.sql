@@ -233,3 +233,95 @@ VALUES(20, 'joy', 'Jain');
 
 INSERT INTO Orders (OrderID, CustomerID, OrderDate)
 VALUES(100, 20, '2023-02-20');  
+
+
+
+-- Date : 31 May 2025
+-- join
+-- left join
+
+create database cwpc12;
+use cwpc12;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2)
+);
+
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com'),
+    (6, 'Joy', 'Singh', 'joy@codeswithpankaj.com'),
+    (7, 'khushbu', 'roy', 'khushbu@codeswithpankaj.com'),
+    (8, 'parag', 'Singh', 'parag@codeswithpankaj.com'),
+    (9, 'mitesh', 'kumar', 'mitesh@codeswithpankaj.com'),
+    (10, 'lakshya', 'jain', 'lakshya@codeswithpankaj.com');
+    
+select * from customers;    
+
+
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (101, 1, '2023-01-15', 250.00),
+    (102, 2, '2023-02-20', 120.50),
+    (103, 3, '2023-03-10', 320.75),
+    (105, 4, '2023-05-12', 2102.00),
+    (111, 11, '2023-05-21', 2170.00),
+    (112, 12, '2023-05-2', 2107.00),
+    (113, 13, '2023-05-22', 2107.00);
+    
+select * from orders;    
+select * from customers; 
+
+
+select customers.customerid , customers.firstname , customers.email,
+orders.orderdate, orders.totalamount 
+from customers left join orders
+on customers.customerid = orders.customerid; 
+
+
+
+-- right join
+
+select customers.customerid , customers.firstname , customers.email,
+orders.orderdate, orders.totalamount 
+from customers right join orders
+on customers.customerid = orders.customerid; 
+-- inner join 
+
+select customers.customerid , customers.firstname , customers.email,
+orders.orderdate, orders.totalamount 
+from customers inner join orders
+on customers.customerid = orders.customerid; 
+
+-- full join
+
+select c.customerid , c.firstname , c.email,
+o.orderdate, o.totalamount 
+from customers as c left join orders as o
+on c.customerid = o.customerid 
+union
+select customers.customerid , customers.firstname , customers.email,
+orders.orderdate, orders.totalamount 
+from customers right join orders
+on customers.customerid = orders.customerid; 
+
+
+
+-- unions claus
+-- truncate table 
