@@ -231,3 +231,123 @@ VALUES(100, 10, '2023-01-16');
 INSERT INTO Customers (CustomerID, FirstName, LastName)
 VALUES(10, 'Joy', 'jain');
 
+
+
+use classicmodels;
+
+show tables;
+
+select * from payments;
+select amount , round(amount) from payments;
+select amount , FLOOR(amount) from payments;
+select amount , ABS(amount) from payments;
+select amount , RAND() from payments;
+select amount , SQRT(amount) from payments;
+select amount , POWER(amount,2) from payments;
+select amount , mod(amount,2) from payments;
+
+
+CREATE TABLE data2 AS
+SELECT * FROM payments;
+
+SELECT * FROM ClonedTable;
+
+
+-- join
+-- unions claus
+
+
+create database cwpc9090;
+use cwpc9090;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2)
+);
+
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com'),
+    (9, 'joy', 'Singh', 'joy@codeswithpankaj.com'),
+    (10, 'rahul', 'jain', 'rahul@codeswithpankaj.com');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (101, 1, '2023-01-15', 250.00),
+    (102, 2, '2023-02-20', 120.50),
+    (103, 3, '2023-03-10', 320.75),
+    (105, 4, '2023-05-12', 210.00),
+    (112, 5, '2023-07-12', 219.00),
+    (113, 6, '2023-08-12', 210.00);
+
+
+-- left join 
+
+select * from customers;
+select * from orders;
+
+
+select c.firstname,c.email,o.totalamount,o.orderdate
+from customers as c left join orders as o 
+on c.customerid = o.customerid; 
+
+-- right join
+select c.firstname,c.email,o.totalamount,o.orderdate
+from customers as c right join orders as o 
+on c.customerid = o.customerid; 
+
+-- inner join
+
+select c.firstname,c.email,o.totalamount,o.orderdate
+from customers as c inner join orders as o 
+on c.customerid = o.customerid; 
+
+
+-- full join
+-- left join
+select c.firstname,c.email,o.totalamount,o.orderdate
+from customers as c left join orders as o 
+on c.customerid = o.customerid 
+union
+-- right join
+select c.firstname,c.email,o.totalamount,o.orderdate
+from customers as c right join orders as o 
+on c.customerid = o.customerid; 
+
+
+-- truncate table 
+-- having 
+-- view 
+-- create view
+create view newdata as 
+-- left join
+select c.firstname,c.email,o.totalamount,o.orderdate
+from customers as c left join orders as o 
+on c.customerid = o.customerid 
+union
+-- right join
+select c.firstname,c.email,o.totalamount,o.orderdate
+from customers as c right join orders as o 
+on c.customerid = o.customerid; 
+
+-- call the view 
+select * from newdata;
+
+use classicmodels;
+
+select count(country) from customers
+group by country having count(country) > 10;
