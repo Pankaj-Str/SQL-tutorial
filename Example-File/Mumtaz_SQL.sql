@@ -206,3 +206,80 @@ select * from customer where first_name like 'a%';
 select * from customer where first_name like '%a%';
 select * from customer where first_name like '%a';
 select * from customer where first_name like 'pat%';
+
+use classicmodels;
+select * from customers;
+
+-- Date 28 Aug 2025
+
+-- top (limit)
+use classicmodels;
+show tables;
+select * from customers;
+select * from customers limit 5;
+-- order by
+select * from customers order by creditlimit asc;
+select * from customers order by creditlimit desc;
+-- group by
+select country from customers  group by country;
+-- count()
+select country , count(country) as total_customers from customers  group by country;
+-- distinct keyword
+
+select distinct country from customers;
+ 
+-- Constraints (key)
+
+-- Unique Key
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100) UNIQUE,
+    mobile varchar(100) unique
+);
+
+-- Inserting records into the "Students" table
+INSERT INTO Students (FirstName, LastName, Email,mobile)
+VALUES
+    ('Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com',454654678),
+    ('Nishant', 'Patel', 'nishant@codeswithpankaj.com',454634678),
+    ('Kiran', 'Desai', 'kiran@codeswithpankaj.com',454654671);
+    
+select * from students;
+
+-- SQL - Foreign Key
+
+CREATE TABLE Customers01 (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50)
+) ; 
+
+-- Inserting records into the "Customers" and "Orders" tables
+INSERT INTO Customers01 (CustomerID, FirstName, LastName)
+VALUES
+    (1, 'Pankaj', 'Sharma'),
+    (2, 'Nishant', 'Patel');  
+    
+select * from customers01;
+
+CREATE TABLE Orders01 (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    FOREIGN KEY (CustomerID) REFERENCES Customers01(CustomerID)
+);
+
+INSERT INTO Orders01 (OrderID, CustomerID, OrderDate)
+VALUES
+    (101, 1, '2023-01-15'),
+    (102, 2, '2023-02-20');
+
+INSERT INTO Customers01 (CustomerID, FirstName, LastName)
+VALUES (103, 'mumtaz', 'khan');  
+  
+INSERT INTO Orders01 (OrderID, CustomerID, OrderDate)
+VALUES (103, 103, '2023-01-15');
+    
+
