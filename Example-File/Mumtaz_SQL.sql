@@ -282,4 +282,100 @@ VALUES (103, 'mumtaz', 'khan');
 INSERT INTO Orders01 (OrderID, CustomerID, OrderDate)
 VALUES (103, 103, '2023-01-15');
     
+-- Date 02 Sep 2025
+-- join
 
+-- full join 
+
+-- create a database 
+create database cwp;
+use cwp;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2)
+);
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com'),
+    (6, 'mumtaz', 'khan', 'mumtaz@codeswithpankaj.com');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (101, 1, '2023-01-15', 250.00),
+    (102, 2, '2023-02-20', 120.50),
+    (103, 3, '2023-03-10', 320.75),
+    (105, 4, '2023-05-12', 210.00),
+    (108, 8, '2023-05-11', 610.00);
+
+select * from orders;
+select * from customers;
+
+
+-- left join 
+
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount 
+from customers left join orders 
+on customers.CustomerID = orders.CustomerID;
+
+-- right join 
+
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount 
+from customers right join orders 
+on customers.CustomerID = orders.CustomerID;
+
+-- inner join 
+
+-- left join 
+
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount 
+from customers inner join orders 
+on customers.CustomerID = orders.CustomerID;
+
+
+-- full join 
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount 
+from customers left join orders 
+on customers.CustomerID = orders.CustomerID
+union
+select customers.firstname , customers.email , orders.orderdate , orders.totalamount 
+from customers right join orders 
+on customers.CustomerID = orders.CustomerID;
+
+
+-- truncate table 
+
+truncate table customers;
+
+select * from customers;
+
+-- having 
+
+use classicmodels;
+
+-- SELECT SalespersonName, SUM(SaleAmount) AS TotalSales
+-- FROM Sales
+-- GROUP BY SalespersonName
+-- HAVING SUM(SaleAmount) > 200;
+
+select * from customers;
+
+select  Country , sum(creditlimit) as total_credit
+from customers group by country  having sum(creditlimit);
+
+select  Country , sum(creditlimit) as total_credit
+from customers group by country  having sum(creditlimit) > 500000;
