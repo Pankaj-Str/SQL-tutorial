@@ -379,3 +379,37 @@ from customers group by country  having sum(creditlimit);
 
 select  Country , sum(creditlimit) as total_credit
 from customers group by country  having sum(creditlimit) > 500000;
+
+use classicmodels;
+
+select * from customers;
+
+select * from customers where creditlimit < 50000 and country = "USA";
+
+-- create a view  
+
+create view pro_c as
+select * from customers where creditlimit < 50000 and country = "USA";
+
+select * from pro_c;
+
+
+-- sum()
+select sum(creditlimit) as total_credit from customers where country = "USA";
+
+-- count()
+select count(creditlimit) as total_customers from customers where country = "USA";
+
+-- avg()
+select avg(creditlimit) as total_avg from customers where country = "USA";
+
+-- min()
+select min(creditlimit) as min_cust from customers where country = "USA";
+
+-- max()
+select max(creditlimit) as min_cust from customers where country = "USA";
+
+-- concat()
+select concat(contactLastName,' ',contactFirstName) as Name from customers;
+
+-- https://github.com/Pankaj-Str/SQL-tutorial/blob/main/Day%2010%20SQL%20Function/StringFunctions.md
