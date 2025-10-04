@@ -76,13 +76,11 @@ create table Employee1(
     dob date
 );
 
--- show list tables
-show tables;
 -- show table record 
-select * from employee;
+select * from employee1;
 
 -- insert record into table 
-insert into employee (id,name,salary,city,dept,dob) 
+insert into employee1 (id,name,salary,city,dept,dob) 
 value(101,'Joy',25000,'Mumbai','sales','1990-12-01'),
 (102,'toy',45000,'pune','other','1995-12-01'),
 (103,'roy',65000,'surat','hr','1991-12-01'),
@@ -90,7 +88,27 @@ value(101,'Joy',25000,'Mumbai','sales','1990-12-01'),
 (105,'boy',95000,'bhuj','sales','1993-12-01');
 
 
+-- 04 Oct 2025
+-- list of database 
+show databases;
 
+-- select database 
+use classicmodels;
 
- 
+-- list of tables
+show tables; 
+
+-- select tables 
+select * from customers;
+
+-- count()
+select count(customernumber) from customers;
+
+-- where
+-- count only USA customers 
+select count(customernumber) from customers where country = "USA";
+-- print all usa customers
+select * from customers where country = "USA";
+-- -- print all usa customers from state NY
+select * from customers where country = "USA" and state = "NY";
 
