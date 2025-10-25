@@ -112,3 +112,57 @@ select * from customers where country = "USA";
 -- -- print all usa customers from state NY
 select * from customers where country = "USA" and state = "NY";
 
+
+-- Date : 25 oct 2025
+
+-- Constraints (key)
+-- primary key 
+-- Example 
+create database cwpc090;
+use cwpc090;
+
+create table students( 
+studentId int primary key,
+Name varchar(50),
+age int);
+
+insert into students(studentId,name,age) values (101,"Rohan",55);
+
+insert into students(studentId,name,age) values (102,"Joy",75);
+
+select * from students;
+
+-- Foreign key
+create table course(
+	courseid int primary key,
+    coursename varchar(100)
+);
+
+create table enrollments(
+	enrollmentid int primary key,
+    studentID int,
+    courseid int,
+    foreign key(courseid) references course(courseid)
+);
+
+insert into course(courseid,coursename) values(1,"maths");
+insert into course(courseid,coursename) values(2,"java");
+insert into enrollments(enrollmentid,studentid,courseid) values (101,1005,1);
+insert into enrollments(enrollmentid,studentid,courseid) values (102,1004,2);
+
+-- unique key
+
+
+
+create table students1( 
+studentId int primary key,
+Name varchar(50),
+age int,
+email varchar(100) unique key);
+
+insert into students1(studentId,name,age,email) values (101,"Rohan",55,"rohan@cwpc.in");
+
+insert into students1(studentId,name,age,email) values (102,"Joy",75,"Joy@cwpc.in");
+
+select * from students1;
+
