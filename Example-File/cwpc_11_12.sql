@@ -118,6 +118,69 @@ drop table Employee1;
 
 
 
+-- introduction of Database 
+-- intro - Sql
+-- Create Database 
+-- drop Database
+-- select Database
+-- create table 
+-- insert query 
+-- where 
+-- and operator
+-- or operator
+-- update query 
+-- delete 
+-- like 
+-- top
+-- order by
+-- group by
+-- distinct keyword
+-- Constraints
+-- join
+-- unions claus
+-- truncate table 
+-- having 
+-- view 
+-- useful function
+
+show databases; 
+
+-- date : 15 Nov 2025
+
+use classicmodels;
+
+-- where
+show tables;
+select * from customers;
+
+select customername,city,country,creditlimit from customers;
+
+select customername,city,country,creditlimit from customers where country = "USA";
+
+select * from customers where state = "NY";
+
+
+
+
+
+-- and operator
+
+select * from customers where country = "USA" and creditlimit >= 100000;
+
+-- or operator
+
+select * from customers where country = "USA" or creditlimit >= 100000;
+
+select * from customers where country = "USA" or country = "Australia";
+
+-- count()
+select count(customername) from customers where country = "USA" or country = "Australia";
+
+select sum(creditlimit) from customers;
+select sum(creditlimit) from customers where country = "USA";
+
+-- update query 
+-- delete 
 
 
 
