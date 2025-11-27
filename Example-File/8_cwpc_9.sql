@@ -1,3 +1,29 @@
+-- introduction of Database 
+-- intro - Sql
+-- Create Database 
+-- drop Database
+-- select Database
+-- create table 
+-- insert query 
+-- where 
+-- and operator
+-- or operator
+-- update query 
+-- delete 
+-- like 
+-- top
+-- order by
+-- group by
+-- distinct keyword
+-- Constraints
+-- join
+-- unions claus
+-- truncate table 
+-- having 
+-- view 
+-- useful function
+
+
 -- create a new database
 create database cwpc901;
 -- list of database 
