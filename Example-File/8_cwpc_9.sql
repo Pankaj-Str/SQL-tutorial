@@ -124,3 +124,59 @@ truncate employee2;
 
 -- delete table 
 drop table employee2;
+
+-- Date : 2 Dec 2025
+-- where 
+-- and operator
+-- or operator
+-- update query 
+-- delete 
+
+use classicmodels;
+-- show list of tables 
+show tables;
+
+select * from customers;
+-- find customers - Country USA 
+select * from customers where country = "USA";
+-- select column 
+select customerName,city,creditlimit,Country from customers 
+where country = "USA";
+-- find the customer credit 1,00,000/-
+select customerName,city,creditlimit,Country from customers 
+where creditlimit > 100000;
+
+select customerName,city,creditlimit,Country from customers 
+where creditlimit < 50000;
+
+select customerName,city,creditlimit,Country from customers 
+where creditlimit = 0;
+
+-- and operator
+-- or operator
+
+select customerName,city,creditlimit,Country from customers 
+where creditlimit = 0 and country = "Germany";
+
+select customerName,city,creditlimit,Country from customers 
+where creditlimit = 0 or country = "Germany";
+
+
+-- operation 
+select customerName,city,Country, creditlimit , 
+creditlimit+1000 as update_new_creditLimit 
+from customers 
+where creditlimit = 0;
+
+-- count()
+select count(creditlimit) from customers 
+where creditlimit = 0;
+
+select count(customername) from customers 
+where country = "USA";
+
+-- sum()
+select sum(creditlimit) from customers 
+where country = "USA";
+
+
