@@ -179,4 +179,57 @@ where country = "USA";
 select sum(creditlimit) from customers 
 where country = "USA";
 
+-- date : 4 - 12 - 2025
+-- update query 
+-- delete 
+-- like 
+-- top (limit)
+-- order by
+-- group by
+
+use classicmodels;
+
+select * from customers;
+
+update customers
+set creditlimit = 51000 where customerNumber = 103;
+
+select * from customers where customerNumber = 103;
+
+-- delete from customers
+-- where customernumber = 103;
+
+select * from customers where customername like "a%";
+select * from customers where customername like "%gifts%";
+select * from customers where customername like "%g%";
+
+select * from customers where customername like "%e";
+
+-- limit
+
+select * from customers limit 10;
+
+-- order by
+
+select * from customers order by creditlimit asc limit 10;
+select * from customers order by creditlimit desc limit 10;
+
+
+select * from customers order by customername asc ;
+select * from customers order by customername desc ;
+
+
+-- group by 
+
+select country from customers group by country;
+
+select country,count(country) as total_customer from customers group by country;
+
+
+
+
+
+
+
+
 
