@@ -226,6 +226,52 @@ select country from customers group by country;
 select country,count(country) as total_customer from customers group by country;
 
 
+-- Date : 6 - 12 - 2025
+-- distinct keyword
+
+use classicmodels;
+
+select distinct country from customers;
+
+-- Constraints (key)
+create database ecom;
+use ecom;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    City VARCHAR(50),
+    email varchar(100) unique key
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+
+select * from customers;
+select * from orders;
+insert into orders value(101,1,'2025-01-12');
+insert into customers value(1,"Joy",'Mumbai','joy@gmail.com');
+
+-- truncate table 
+truncate table customers;
+
+-- having 
+SELECT SalespersonName, SUM(SaleAmount) AS TotalSales
+FROM Sales
+GROUP BY SalespersonName
+HAVING SUM(SaleAmount) > 200;
+
+use classicmodels;
+select * from customers;
+
+select country , sum(creditlimit) as total_credit 
+from customers group by country having sum(creditlimit) > 500000;
+
 
 
 
