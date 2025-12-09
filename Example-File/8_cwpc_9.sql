@@ -273,7 +273,91 @@ select country , sum(creditlimit) as total_credit
 from customers group by country having sum(creditlimit) > 500000;
 
 
+-- Join 
+-- Date : 9 dec 2025 
+create database cwpc9090;
+use cwpc9090;
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2)
+);
 
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com'),
+    (7, 'Pooja', 'jain', 'pooja@codeswithpankaj.com');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (101, 1, '2023-01-15', 250.00),
+    (102, 2, '2023-02-20', 120.50),
+    (103, 3, '2023-03-10', 320.75),
+    (104, 1, '2023-04-05', 175.25),
+    (105, 4, '2023-05-12', 210.00),
+    (106, 6, '2023-10-12', 850.00);
+
+select * from customers;
+select * from orders;
+
+-- inner join
+select customers.firstname , customers.email , 
+orders.orderid , orders.totalamount,orders.orderdate
+from customers inner join orders 
+on customers.customerid = orders.customerid;
+
+-- left join
+select customers.firstname , customers.email , 
+orders.orderid , orders.totalamount,orders.orderdate
+from customers left join orders 
+on customers.customerid = orders.customerid;
+
+-- right join
+select customers.firstname , customers.email , 
+orders.orderid , orders.totalamount,orders.orderdate
+from customers right join orders 
+on customers.customerid = orders.customerid;
+
+-- full join
+select customers.firstname , customers.email , 
+orders.orderid , orders.totalamount,orders.orderdate
+from customers left join orders 
+on customers.customerid = orders.customerid
+union
+select customers.firstname , customers.email , 
+orders.orderid , orders.totalamount,orders.orderdate
+from customers right join orders 
+on customers.customerid = orders.customerid;
+
+
+-- view 
+
+create view  joinhub as
+-- full join
+select customers.firstname , customers.email , 
+orders.orderid , orders.totalamount,orders.orderdate
+from customers left join orders 
+on customers.customerid = orders.customerid
+union
+select customers.firstname , customers.email , 
+orders.orderid , orders.totalamount,orders.orderdate
+from customers right join orders 
+on customers.customerid = orders.customerid;
+
+-- call view
+
+select * from joinhub;
 
 
 
