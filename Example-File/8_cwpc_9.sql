@@ -359,6 +359,91 @@ on customers.customerid = orders.customerid;
 
 select * from joinhub;
 
+use classicmodels;
+
+select count(*) from customers;
+-- avg()
+select avg(creditlimit) from customers;
+-- MIN()
+select min(creditlimit) from customers;
+-- MAX()
+select max(creditlimit) from customers;
+
+-- CONCAT()
+
+select * from customers;
+
+select concat(contactfirstname,' ',contactlastname) as full_name
+from customers;
+
+use classicmodels;
+
+-- concat()
+select concat(contactfirstname, ' ' ,contactlastname) as full_name from customers;
+
+-- upper()
+select upper(contactfirstname) from customers;
+
+-- lower()
+select lower(contactfirstname) from customers;
+
+-- left()
+select left(contactfirstname, 3) from customers;
+
+-- right()
+select right(contactfirstname, 5) from customers;
+
+-- length()
+select contactfirstname, length(contactfirstname) from customers;
+
+-- trim()
+select trim(contactfirstname), length(trim(contactfirstname)) from customers;
+
+-- replace()
+select replace(city, 'ars' , 'qq') as city_replaced from customers;
+
+-- ltrim()
+select ltrim(city) AS city_ltrimmed FROM customers;
+
+-- ltrim()
+select ltrim(city) AS city_ltrimmed FROM customers;
+
+-- rtrim()
+select ltrim(city) AS city_rtrimmed FROM customers;
+
+-- charindex() -- does not work in mysql
+select charindex('a', city) as position_of_a from customers;
+
+-- replicate() -- does not work in mysql
+select replicate('abc', 3) AS repeated_string FROM customers LIMIT 1;
+
+-- substring()
+-- substring(string_expression, start_position, length)
+select contactfirstname, substring(contactfirstname, 3, 4) AS First_Name
+from customers;
+
+-- reverse
+select reverse(city) from customers;
+
+-- format
+select creditlimit, format(creditlimit, 2) from customers;
+select creditlimit, concat('$',format(creditlimit, 2)) from customers;
+
+-- stuff() -- does not work in mysql
+select contactfirstname, stuff(contactfirstname, 3, 4, '34333') AS First_Name
+from customers;
+
+-- ascii
+select ascii('A') as ascii_value from customers limit 1;
+
+-- unicode -- does not work in mysql -- check one more time
+select unicode('A') as unicode_value from customers limit 1;
+
+
+
+
+
+
 
 
 
