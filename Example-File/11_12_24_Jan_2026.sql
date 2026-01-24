@@ -49,3 +49,54 @@ insert into employee value(101,"Joy","Mumbai","A1");
 
 -- show table data
 select * from employee;
+
+-- date 24 jan 2026
+
+-- create table 
+-- insert query
+
+create table cwpc_emp(
+	id int primary key,
+    name varchar(50),
+    dob date,
+    dept enum('hr','sales','it','other'),
+    salary bigint,
+    city varchar(50),
+    email varchar(100),
+    mobile varchar(100)
+)
+
+-- check tables data 
+select * from cwpc_emp;
+-- insert data 
+insert into cwpc_emp values(
+	101,"joy","1990-01-23","sales",23000,"mumbai","joy@codeswithpankaj.com","5415674"
+);
+
+insert into cwpc_emp (id,name,dob,dept,salary,city,mobile)
+values(102,"joy","1990-01-23","sales",23000,"mumbai","5415674");
+
+
+-- new table 
+create table cwpc_emp1(
+	id int primary key auto_increment,
+    name varchar(50),
+    dob date,
+    dept enum('hr','sales','it','other'),
+    salary bigint,
+    city varchar(50),
+    email varchar(100) unique key,
+    mobile varchar(100) unique key
+)
+
+-- check tables data 
+select * from cwpc_emp1;
+-- insert data 
+insert into cwpc_emp1 values(
+	105,"joy","1990-01-23","sales",23000,"mumbai","joy@codeswithpankaj.com","5415674"
+);
+
+insert into cwpc_emp1 (name,dob,dept,salary,city,email,mobile)
+values(
+	"joy","1990-01-23","sales",23000,"mumbai","joy1@codeswithpankaj.com","54157674"
+);
