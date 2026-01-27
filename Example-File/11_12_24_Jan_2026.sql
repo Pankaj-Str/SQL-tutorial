@@ -100,3 +100,35 @@ insert into cwpc_emp1 (name,dob,dept,salary,city,email,mobile)
 values(
 	"joy","1990-01-23","sales",23000,"mumbai","joy1@codeswithpankaj.com","54157674"
 );
+
+-- Date :- 27 Jan 2026
+-- where 
+
+show databases;
+use classicmodels;
+show tables;
+
+select * from customers;
+
+select * from customers where country = "USA";
+
+-- count()
+select count(customerName) from customers where country = "USA";
+
+
+-- and operator
+
+select * from customers where country = "USA" and state = "NY";
+
+-- or operator
+
+select * from customers where country = "USA" or state = "NY";
+
+-- update query
+
+update customers 
+set creditlimit = 450000
+where customerNumber = 124;
+
+-- show record 
+select * from customers where customernumber = 124;
