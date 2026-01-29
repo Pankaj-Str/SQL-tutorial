@@ -132,3 +132,28 @@ where customerNumber = 124;
 
 -- show record 
 select * from customers where customernumber = 124;
+
+-- Date : 29 jan 2026
+-- delete 
+use classicmodels;
+select * from customers;
+
+-- delete from customers where customernumber = 124;
+
+-- like 
+select * from customers where customername like "a%";
+select * from customers where customername like "at%";
+
+select * from customers where customername like "%at%";
+select * from customers where customername like "%e";
+
+-- top (limit)
+select * from customers limit 5;
+
+-- order by
+select  customername,creditlimit from customers order by creditlimit asc;
+select  customername,creditlimit from customers order by creditlimit desc;
+
+-- group by
+
+select country , count(country) as total_country from customers group by country;
