@@ -157,3 +157,50 @@ select  customername,creditlimit from customers order by creditlimit desc;
 -- group by
 
 select country , count(country) as total_country from customers group by country;
+
+
+-- Date : 31 Jan 2026
+-- group by
+
+use classicmodels;
+
+select * from customers;
+
+select state from customers group by state;
+-- count()
+select state , count(state) from customers group by state;
+
+
+-- distinct keyword
+
+select distinct country from customers;
+select distinct count(country) from customers;
+select distinct creditlimit from customers;
+
+-- Constraints (key)
+
+create database cwp45;
+use cwp45;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    email varchar(100) unique key,
+    mobile varchar(50) unique key
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+
+insert into customers 
+value(112,"Joy","Kumar",'joy@cwpc.in','8786617468');
+select * from customers;
+insert into orders value(101,112,'2025-05-01');
+select * from orders;
+
