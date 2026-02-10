@@ -285,3 +285,50 @@ orders.orderid, orders.totalamount , orders.orderdate
 from customers right join orders
 on orders.customerid = customers.customerid; 		
 		
+-- Date 10 - Feb 2026
+
+-- truncate table 
+
+show databases;
+
+use cwpc100;
+
+show tables;
+
+select * from employee;
+
+truncate employee;
+
+-- having 
+
+use classicmodels;
+
+select * from customers;
+
+select country , count(country) as count_country
+from customers group by country 
+having count(country) > 10; 
+
+-- view 
+
+create view large_c as
+select country , count(country) as count_country
+from customers group by country 
+having count(country) > 10; 
+
+-- call views 
+
+select * from large_c;
+
+-- useful function
+-- sum()
+select sum(creditlimit) from customers;
+-- count()
+-- min()
+select min(creditlimit) from customers;
+-- max()
+select max(creditlimit) from customers;
+-- AVG()
+select avg(creditlimit) from customers;
+select CURDATE();
+
