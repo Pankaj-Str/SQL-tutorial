@@ -86,6 +86,58 @@ value(105,'Joy','1990-02-23',25000,'it','mumbai',5.6);
 
 
 
+-- Date : 26 March 2026
+-- update query 
+-- delete 
+-- like 
+-- top
+-- order by
+
+use classicmodels;
+show tables;
+select * from customers where customernumber = 119;
+
+
+
+
+
+
+update customers
+set creditlimit = 2501100
+where customernumber = 119;
+
+-- delete 
+delete from employee
+where employeeid = 101; 
+
+
+select * from employee;
+
+
+-- like 
+select * from customers 
+where customername like "at%";
+select * from customers 
+where customername like "%e";
+
+select * from customers 
+where customername like "%gift%";
+
+-- top (limit)
+select* from customers limit 10;
+
+-- orderby
+select* from customers order by creditlimit asc;
+select* from customers order by creditlimit desc;
+
+select* from customers order by city asc;
+select* from customers order by city desc;
+
+
+select* from customers order by creditlimit asc limit 10;
+select* from customers order by creditlimit desc limit 10;
+
+
 
 
 
