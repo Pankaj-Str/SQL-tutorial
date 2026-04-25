@@ -1,0 +1,68 @@
+-- introduction of Database 
+-- intro - Sql
+-- Create Database 
+-- drop Database
+-- select Database
+-- create table 
+-- insert query 
+-- where 
+-- and operator
+-- or operator
+-- update query 
+-- delete 
+-- like 
+-- top
+-- order by
+-- group by
+-- distinct keyword
+-- Constraints
+-- join
+-- unions claus
+-- truncate table 
+-- having 
+-- view 
+-- useful function
+
+
+-- Date 25 April 2026
+-- show list of database
+show databases;
+-- Create Database
+create database cwpc98; 
+-- select database
+use cwpc98;
+-- drop Database
+drop database cwpc98;
+-- create table  
+
+create table students(
+	id int,
+    first_name varchar(100),
+    last_name varchar(100),
+    age int,
+    date_of_birth date,
+    subjects enum("java","c","python")
+);
+
+-- show table list 
+show tables;
+
+-- show table record 
+select * from students;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
