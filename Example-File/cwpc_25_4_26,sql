@@ -50,7 +50,36 @@ show tables;
 -- show table record 
 select * from students;
 
+-- date 28 april 2026
 
+# create a new database
+create database cwpc110;
+
+# select database
+use cwpc110;
+
+
+# create table 
+create table Employee(
+	emp_id int primary key,
+    name varchar(100),
+    dob date,
+    salary int,
+    mobile varchar(100) unique key,
+    email varchar(100) unique key,
+    dept enum("it","hr")
+);
+-- show table records 
+select * from employee;
+
+-- add record into table 
+insert into employee (emp_id,name,dob,salary,mobile,email,dept)
+values(101,"sejal","1995-04-23",650000,9876541236,"sejal@cwpc.in","hr");
+-- add multiple record 
+insert into employee (emp_id,name,dob,salary,mobile,email,dept)
+values(102,"Pankaj","1992-04-23",850000,9856541236,"pankaj@cwpc.in","hr"),
+(103,"Tejal","1997-04-23",650000,9876541234,"Tejal@cwpc.in","it"),
+(104,"Joy","1996-04-23",150000,9876541239,"joy@cwpc.in","hr");
 
 
 
