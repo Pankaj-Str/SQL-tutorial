@@ -83,8 +83,34 @@ values(102,"Pankaj","1992-04-23",850000,9856541236,"pankaj@cwpc.in","hr"),
 
 
 
+-- date 30 April 2026
+
+use classicmodels;
+
+-- check all table
+show tables;
+
+-- show table record 
+select * from customers;
+
+-- where
+
+select * from customers where country = "USA";
+
+select * from customers where creditlimit  < 1;
+
+-- and operator
+select * from customers where country = "USA" and city = "NYC";
+-- or operator
+select * from customers where country = "USA" or creditlimit > 150000;
+-- update query 
+
+update customers
+set creditlimit = 500000
+where customernumber = 131;
 
 
+select * from customers where customernumber = 131;
 
 
 
