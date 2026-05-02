@@ -113,7 +113,31 @@ where customernumber = 131;
 select * from customers where customernumber = 131;
 
 
+-- 2 May 2026
+-- delete 
+use classicmodels;
+show tables;
+select * from offices;
+-- SET SQL_SAFE_UPDATES = 0;
+-- delete from offices where officecode = 1;
 
+-- like 
+select * from customers where customername like "at%";
+select * from customers where customername like "%e";
+select * from customers where customername like "%gifts%";
+
+-- top(limit)
+select * from customers limit 5;
+
+-- order by
+select * from customers order by creditlimit asc limit 10;
+select * from customers order by creditlimit desc limit 10;
+select * from customers order by contactfirstname desc limit 10;
+select * from customers order by contactfirstname asc limit 10;
+
+-- distinct keyword
+
+select distinct city from customers;
 
 
 
