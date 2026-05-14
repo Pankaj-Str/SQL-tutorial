@@ -141,7 +141,236 @@ select distinct city from customers;
 
 
 
+-- Date 25 April 2026
+-- show list of database
+show databases;
+-- Create Database
+create database cwpc98; 
+-- select database
+use cwpc98;
+-- drop Database
+drop database cwpc98;
+-- create table  
 
+
+-- Date : 5 may 2026
+-- Constraints (keys)
+create database sejal01;
+use sejal01;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    city VARCHAR(50)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+
+select * from orders;
+select * from customers;
+
+INSERT INTO Customers (CustomerID, name, city)
+VALUES
+    (1, 'Pankaj', 'mumbai'),
+    (2, 'Nishant', 'pune');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate)
+VALUES
+    (101, 1, '2023-01-15'),
+    (102, 2, '2023-02-20');
+
+
+
+-- join
+
+-- 1	Full Join
+-- 2	Inner Join
+-- 3	Left Join
+
+# create database 
+create database ajinkya01;
+use ajinkya01;
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    name VARCHAR(50),
+    city VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    TotalAmount DECIMAL(10, 2)
+);
+
+INSERT INTO Customers (CustomerID, Name, City, Email) VALUES
+(1, 'Aarav Sharma', 'Mumbai', 'aarav.sharma@email.com'),
+(2, 'Priya Verma', 'Delhi', 'priya.verma@email.com'),
+(3, 'Rahul Mehta', 'Pune', 'rahul.mehta@email.com'),
+(4, 'Sneha Iyer', 'Chennai', 'sneha.iyer@email.com'),
+(5, 'Vikram Singh', 'Jaipur', 'vikram.singh@email.com'),
+(6, 'Ananya Rao', 'Bangalore', 'ananya.rao@email.com'),
+(7, 'Rohan Kapoor', 'Kolkata', 'rohan.kapoor@email.com'),
+(8, 'Neha Patel', 'Ahmedabad', 'neha.patel@email.com'),
+(9, 'Karan Malhotra', 'Hyderabad', 'karan.malhotra@email.com'),
+(10, 'Meera Nair', 'Kochi', 'meera.nair@email.com'),
+(11, 'Aditya Joshi', 'Nagpur', 'aditya.joshi@email.com'),
+(12, 'Pooja Desai', 'Surat', 'pooja.desai@email.com'),
+(13, 'Siddharth Roy', 'Lucknow', 'siddharth.roy@email.com'),
+(14, 'Kavya Reddy', 'Vijayawada', 'kavya.reddy@email.com'),
+(15, 'Arjun Das', 'Bhubaneswar', 'arjun.das@email.com'),
+(16, 'Ishita Sen', 'Patna', 'ishita.sen@email.com'),
+(17, 'Manish Yadav', 'Indore', 'manish.yadav@email.com'),
+(18, 'Divya Kulkarni', 'Nashik', 'divya.kulkarni@email.com'),
+(19, 'Harsh Gupta', 'Kanpur', 'harsh.gupta@email.com'),
+(20, 'Simran Kaur', 'Amritsar', 'simran.kaur@email.com'),
+(21, 'Nitin Chawla', 'Chandigarh', 'nitin.chawla@email.com'),
+(22, 'Ritika Bose', 'Guwahati', 'ritika.bose@email.com'),
+(23, 'Yash Thakur', 'Bhopal', 'yash.thakur@email.com'),
+(24, 'Tanvi Mishra', 'Varanasi', 'tanvi.mishra@email.com'),
+(25, 'Deepak Arora', 'Noida', 'deepak.arora@email.com');
+
+select * from customers;
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount) VALUES
+(101, 1, '2026-01-05', 2500.50),
+(102, 2, '2026-01-06', 1800.00),
+(103, 3, '2026-01-07', 3200.75),
+(104, 4, '2026-01-08', 1450.25),
+(105, 5, '2026-01-09', 2899.99),
+(106, 6, '2026-01-10', 999.50),
+(107, 7, '2026-01-11', 4200.00),
+(108, 8, '2026-01-12', 875.75),
+(109, 9, '2026-01-13', 2300.00),
+(110, 10, '2026-01-14', 3150.40),
+(111, 11, '2026-01-15', 1200.00),
+(112, 12, '2026-01-16', 4500.90),
+(113, 13, '2026-01-17', 760.25),
+(114, 14, '2026-01-18', 1980.80),
+(115, 15, '2026-01-19', 5100.00),
+(116, 16, '2026-01-20', 640.60),
+(117, 17, '2026-01-21', 2999.99),
+(118, 18, '2026-01-22', 1700.30),
+(119, 19, '2026-01-23', 3850.00),
+(120, 20, '2026-01-24', 920.45),
+(121, 21, '2026-01-25', 6100.00),
+(122, 22, '2026-01-26', 2400.75),
+(123, 23, '2026-01-27', 3333.33),
+(124, 24, '2026-01-28', 1500.50),
+(125, 25, '2026-01-29', 2750.00),
+(126, 1, '2026-02-01', 1999.99),
+(127, 5, '2026-02-02', 420.00),
+(128, 10, '2026-02-03', 5400.80),
+(129, 15, '2026-02-04', 3120.10),
+(130, 20, '2026-02-05', 880.90),
+
+-- 10 unique CustomerIDs not present in Customers table
+(131, 101, '2026-02-06', 1450.00),
+(132, 102, '2026-02-07', 2200.50),
+(133, 103, '2026-02-08', 3100.75),
+(134, 104, '2026-02-09', 890.20),
+(135, 105, '2026-02-10', 4500.00),
+(136, 106, '2026-02-11', 1299.99),
+(137, 107, '2026-02-12', 2750.45),
+(138, 108, '2026-02-13', 3600.60),
+(139, 109, '2026-02-14', 4100.10),
+(140, 110, '2026-02-15', 9999.99);
+
+
+
+INSERT INTO Customers (CustomerID, Name, City, Email) VALUES
+(201, 'Ankit Saxena', 'Agra', 'ankit.saxena@email.com'),
+(202, 'Pallavi Jain', 'Meerut', 'pallavi.jain@email.com'),
+(203, 'Rohit Batra', 'Shimla', 'rohit.batra@email.com'),
+(204, 'Nisha Arora', 'Ludhiana', 'nisha.arora@email.com'),
+(205, 'Tarun Mishra', 'Allahabad', 'tarun.mishra@email.com'),
+(206, 'Vaishali Patil', 'Kolhapur', 'vaishali.patil@email.com'),
+(207, 'Sameer Khan', 'Aurangabad', 'sameer.khan@email.com'),
+(208, 'Jyoti Malviya', 'Jabalpur', 'jyoti.malviya@email.com'),
+(209, 'Akash Choudhary', 'Siliguri', 'akash.choudhary@email.com'),
+(210, 'Reema Dutta', 'Durgapur', 'reema.dutta@email.com');
+
+select * from customers;
+select * from orders;
+
+-- left join 
+select customers.name , customers.city,
+orders.orderdate, orders.totalamount from customers
+left join orders on customers.customerid = orders.customerid;
+
+-- right join 
+select customers.name , customers.city,
+orders.orderdate, orders.totalamount from customers
+right join orders on customers.customerid = orders.customerid;
+
+-- inner join 
+select customers.name , customers.city,
+orders.orderdate, orders.totalamount from customers
+inner join orders on customers.customerid = orders.customerid;
+
+-- full join 
+select customers.name , customers.city,
+orders.orderdate, orders.totalamount from customers
+left join orders on customers.customerid = orders.customerid
+union
+select customers.name , customers.city,
+orders.orderdate, orders.totalamount from customers
+right join orders on customers.customerid = orders.customerid;
+
+
+-- multiple join :
+
+create table employee(
+			EmpId int,
+            EmpName varchar(100),
+            DeptId int,
+            ManagerId int);
+            
+INSERT INTO Employee (EmpId, EmpName, DeptId, ManagerId) VALUES
+(1, 'Alice', 10, 100),
+(2, 'Bob', 10, 100),
+(3, 'Charlie', 20, 101),
+(4, 'David', 30, NULL);
+            
+            
+select * from employee;
+
+CREATE TABLE Departments (
+    DeptID INT PRIMARY KEY,
+    DeptName VARCHAR(50)
+);
+
+INSERT INTO Departments (DeptID, DeptName) VALUES
+(10, 'HR'),
+(20, 'IT'),
+(30, 'Finance');
+
+
+CREATE TABLE Managers (
+    ManagerID INT PRIMARY KEY,
+    ManagerName VARCHAR(50)
+);
+
+INSERT INTO Managers (ManagerID, ManagerName) VALUES
+(100, 'John Smith'),
+(101, 'Mary Jones'),
+(102, 'Robert Brown');
+
+select * from employee;
+select * from departments;
+select * from managers;
+
+
+select e.EmpId, e.EmpName, e.ManagerId, d.DeptName from
+employee e INNER JOIN departments d on e.EmpId = d.DeptId;
 
 
 
