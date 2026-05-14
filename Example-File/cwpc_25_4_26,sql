@@ -373,4 +373,39 @@ select e.EmpId, e.EmpName, e.ManagerId, d.DeptName from
 employee e INNER JOIN departments d on e.EmpId = d.DeptId;
 
 
+-- Date : 14 may 2026
 
+
+
+
+
+use classicmodels;
+
+select * from customers;
+-- group by
+-- select column country
+select country from customers;
+-- country groups
+select country from customers group by country;
+-- count item into group
+select country , count(country) as total_country from customers group by country;
+
+-- having 
+
+-- select country > 10
+select country , count(country) as total_country from customers group by country having count(country) > 10;
+
+
+-- select country wise creditlimit total
+select country, sum(creditlimit) as total_credit_limit from customers group by country;
+
+-- select credit limit more then 0
+select country, sum(creditlimit) as total_credit_limit from customers group by country having sum(creditlimit) = 0.0;
+
+-- view
+
+create view total_c as 
+select country, sum(creditlimit) as total_credit_limit from customers group by country having sum(creditlimit) = 0.0;
+
+-- call view 
+select * from total_c;
