@@ -1,4 +1,17 @@
--- 10,000 Employee Records
+create database CWPC_Company;
+use CWPC_Company;
+
+create table employees(
+	employee_id int primary key,
+    name varchar(50),
+    department varchar(50),
+    salary decimal(10,2),
+    city varchar(50),
+    joining_date Date,
+    manager_id int
+);
+
+
 -- Generated for SQL practice
 
 INSERT INTO employees
