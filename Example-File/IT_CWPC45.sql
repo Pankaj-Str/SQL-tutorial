@@ -164,7 +164,84 @@ from employees where Department = "IT";
 
 
 
+-- Date 9 Oct 2026
 
+
+create database CWPC0909;
+use CWPC0909;
+create table customers(
+	customer_id int primary key,
+    name varchar(100),
+    city varchar(100),
+    email varchar(100)
+);
+insert into customers(customer_id,name,city,email) 
+values(101,"Joy","Mumbai","joy@cwpc.in"),
+(102,"Nishant","Mumbai","nishant@cwpc.in"),
+(103,"Neha","Surat","neha@cwpc.in"),
+(104,"Rohan","Surat","rohan@cwpc.in"),
+(105,"Riya","Delhi","riya@cwpc.in"),
+(109,"Tiya","bhuj","tiya@cwpc.in"),
+(110,"Kiya","pune","kiya@cwpc.in");
+select * from customers;
+
+create table orders(
+	order_id int primary key,
+    customer_id int,
+    orderdate date,
+    total_amount decimal(10,2)
+);
+insert into orders(order_id,customer_id,orderdate,total_amount) 
+values(10,100,"2026-05-23",5600.23),
+(11,101,"2026-05-23",5600.03),
+(12,102,"2026-10-22",5900.73),
+(13,103,"2026-07-13",5800.13),
+(14,104,"2026-06-03",5500.33),
+(15,105,"2026-07-33",4600.83),
+(16,106,"2026-08-23",2600.73),
+(17,107,"2026-09-13",5500.63),
+(18,108,"2026-04-02",4500.63);
+
+select * from orders;
+select * from customers;
+
+-- left join 
+select customers.customer_id ,customers.name , customers.city , 
+orders.total_amount , orders.order_id 
+from customers left join orders on 
+customers.customer_id = orders.customer_id;
+ 
+-- right join
+ 
+select customers.customer_id ,customers.name , customers.city , 
+orders.total_amount , orders.order_id 
+from customers right join orders on 
+customers.customer_id = orders.customer_id;
+ 
+-- inner join 
+select customers.customer_id ,customers.name , customers.city , 
+orders.total_amount , orders.order_id 
+from customers inner join orders on 
+customers.customer_id = orders.customer_id;
+
+-- full join
+
+select customers.customer_id ,customers.name , customers.city , 
+orders.total_amount , orders.order_id 
+from customers left join orders on 
+customers.customer_id = orders.customer_id
+union
+select customers.customer_id ,customers.name , customers.city , 
+orders.total_amount , orders.order_id 
+from customers right join orders on 
+customers.customer_id = orders.customer_id;
+
+-- use name 
+-- inner join 
+select c.customer_id ,c.name , c.city , 
+o.total_amount , o.order_id 
+from customers as c inner join orders as o on 
+c.customer_id = o.customer_id;
 
 
 
