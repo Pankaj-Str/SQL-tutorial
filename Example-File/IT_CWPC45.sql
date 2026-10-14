@@ -246,8 +246,85 @@ c.customer_id = o.customer_id;
 
 
 
+-- Date 13 Oct 2026
+use CWPC_company;
+select * from employees;
 
+select name,joining_date,
+year(joining_date) as year,
+month(joining_date) as month,
+day(joining_date) as day
+from employees;
 
+-- add days to a date 
+select name, joining_date , date_add(joining_date,interval 10 Day) as after_10
+from employees;
+-- add month 
+select name, joining_date , date_add(joining_date,interval 10 month) as after_10
+from employees;
+
+select name, joining_date , date_sub(joining_date,interval 2 month) as after_10
+from employees;
+
+select name, joining_date , date_sub(joining_date,interval 2 year) as after_10
+from employees;
+
+select name, joining_date ,round(datediff(current_date(),joining_date)/365,1) as diff_day 
+from employees;
+
+-- views
+
+create view exp_emp as 
+select name, joining_date ,round(datediff(current_date(),joining_date)/365,1) as diff_day 
+from employees;
+
+-- call views 
+select * from exp_emp; 
+
+-- windows function 
+-- rank()
+select * from employees;
+select name ,salary, department from employees order by salary desc;
+
+ 
+
+-- 14 Oct 2026
+
+-- Foreign Key
+create database cwpc99;
+use cwpc99;
+
+create table customers(
+	customer_id int primary key,
+    name varchar(100),
+    city varchar(100),
+    email varchar(100) unique key
+);
+
+create table orders(
+	order_id int primary key,
+    order_date date,
+    amount decimal(10,2),
+    customer_id int,
+    foreign key  (customer_id) references customers(customer_id)
+); 
+
+select * from customers;
+select * from orders;
+
+insert into customers(customer_id,name,city,email) values(1,"joy","mumbai","joy@cwpc.in");
+
+insert into orders(order_id,order_date,amount,customer_id) 
+values(101,'2023-01-05',5600.23,1);
+
+use CWPC_Company;
+
+select department , sum(salary) as dept_salary 
+from employees
+group by department order by dept_salary desc limit 3;
+
+-- rank 
+select name,salary, rank() over (order by salary desc) as salary_rank from employees limit 3;
 
 
 
