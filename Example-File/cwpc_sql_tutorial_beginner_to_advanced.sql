@@ -1,28 +1,5 @@
 /*
 ===============================================================================
-CODES WITH PANKAJ (CWPC)
-SQL TUTORIAL: BEGINNER TO ADVANCED
-Database: MySQL 8.0+
-File: cwpc_sql_tutorial_beginner_to_advanced.sql
-
-HOW TO USE THIS FILE
-1. Open this file in MySQL Workbench.
-2. Run sections one at a time, from top to bottom.
-3. Read each heading and comment before executing the code.
-4. This file creates separate practice databases so examples do not conflict.
-5. Sections marked OPTIONAL or DESTRUCTIVE are commented out by default.
-
-NOTE ABOUT DATA
-- Most sections create small, self-contained sample tables.
-- The Bookstore Case Study section expects the database generated earlier:
-  bookstore_case_study (Authors, Books, Customers, Orders).
-- Some statements use MySQL 8.0 features such as window functions and CTEs.
-===============================================================================
-*/
-
-
-/*
-===============================================================================
 SECTION 01 - EXPLORING THE DATA UNIVERSE
 Goal: Create a database, select it, and inspect tables.
 ===============================================================================
