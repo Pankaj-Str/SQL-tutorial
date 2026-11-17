@@ -77,13 +77,45 @@ insert into employee1 (name,dept,email,mobile,age)
 value("aryan1","IT","aryan1@cwpc.in","11236547851",45);
 
 -- insert query 
+
+-- Date 12 - 11 - 2026
+
 -- where 
+use classicmodels;
+-- show list of tables 
+show tables;
+-- select customers tables 
+select * from customers;
+
+-- where
+select * from customers where country = "Italy";
+select * from customers where country = "USA";
+select * from customers where creditlimit = 0.0;
+
 -- and operator
+
+select * from customers where creditlimit = 0.0 and Country = "USA";
 -- or operator
+select * from customers where creditlimit = 0.0 or Country = "USA";
+  
+-- Date 17 Nov 2026
 -- update query 
--- delete 
+use classicmodels;
+select * from customers;
+-- select customers 103 
+select * from customers where customernumber = 103;
+-- now use update creditlimit
+update customers set creditlimit = 100000 where customernumber = 103;
+-- delete data from table 
+select * from customers where customernumber = 112;
+delete from customers where customernumber = 112;
 -- like 
--- top
+select * from customers where customername like "%ge";
+select * from customers where customername like "aus%";
+select * from customers where customername like "%Gift%";
+-- top (limit)
+select * from customers limit 5;
+
 -- order by
 -- group by
 -- distinct keyword
